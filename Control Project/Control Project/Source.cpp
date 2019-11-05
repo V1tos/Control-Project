@@ -1,64 +1,14 @@
-#include <iostream>
-#include <string>
 #include "PC.h"
-using namespace std;
+#include "Monitor.h"
+#include "Laptop.h"
 
-
-//struct PC
-//{
-//	string computerName;
-//	string devCountry;
-//	int powerSupply;
-//	int uahPrice, dolPrice;
-//	int weight;
-//	int safeGuard;
-//	
-//	
-//	struct { string name; double freq1; double freq2; int generation; }Processor;
-//	struct { string type; int freq; int memory; }RAM;
-//	struct { string name; int memory; }Videocard;
-//	struct { string type; int memory; }DiskDrive;
-//	struct { int width; int height; int length; }Size;
-//
-//	void ShowComputerInfo() {
-//		cout << "Name:             " << computerName << endl;
-//		cout << "Author country:   " << devCountry << endl;
-//		cout << "Processor:        " << PCprocessor.name << " (" << PCprocessor.freq1 << " - " << PCprocessor.freq2 << " GHz) " << PCprocessor.generation << "th generation" << endl;
-//		cout << "RAM:              " << PCRAM.type << "-" << PCRAM.freq << " MHz (" << PCRAM.memory << " Gb)" << endl;
-//		cout << "Videocard:        " << PCVideoCard.name << " (" << PCVideoCard.memory << " Gb)" << endl;
-//		cout << "Disk drive:       " << PCDiskDrive.type << " (" << PCDiskDrive.memory << " Gb)" << endl;
-//		cout << "Weight:           " << weight << " kg" << endl;
-//		cout << "Size:             " << Size.width << "x" << Size.height << "x" << Size.length << " mm" << endl;
-//		cout << "Power supply:     " << powerSupply << " kW" << endl;
-//		cout << "Safeguard:        " << safeGuard << " month" << endl;
-//	}
-//};
-
-struct Laptop
-{
-
-
-
-};
 
 struct Printer
 {
 
 };
 
-struct Monitor {
-	string name;
-	string devCountry;
-	string matrixType;
-	string colour;
-	int refreshRate;
-	int weight;
 
-	struct { int width; int height; }Expansion;
-
-
-
-};
 
 void AddComputer(PC *&computer, int &computersCount) {
 	system("cls");
@@ -93,8 +43,6 @@ void AddComputer(PC *&computer, int &computersCount) {
 	computer = newComputer;
 
 
-
-
 }
 
 void ComputerList(PC *&computer, int &computersCount) {
@@ -108,6 +56,87 @@ void ComputerList(PC *&computer, int &computersCount) {
 	}
 
 }
+
+
+void AddMonitor(Monitor *&monitor, int &monitorsCount) {
+	system("cls");
+	int count = 0;
+	cout << "How many monitors do you want to add?" << endl;
+	cin >> count;
+	Monitor *newMonitor = new Monitor[monitorsCount + count];
+
+	for (int i = 0; i < monitorsCount + count; i++) {
+		if (i >= monitorsCount) {
+			cout << "Monitor N" << i + 1 << " :" << endl;
+			newMonitor[i].CreateMonitor();
+			system("cls");
+			cout << "Added" << endl;
+		}
+		else
+		{
+			newMonitor[i] = monitor[i];
+		}
+
+	};
+
+	monitorsCount += count;
+
+	delete[] monitor;
+	monitor = newMonitor;
+
+}
+
+void MonitorList(Monitor *&monitor, int &monitorsCount) {
+	system("cls");
+	for (int i = 0; i < monitorsCount; i++)
+	{
+		cout << "*************************************************************" << endl;
+		cout << "Monitor N" << i + 1 << " :" << endl;
+		monitor[i].ShowMonitorInfo();
+		cout << "*************************************************************" << endl;
+	}
+}
+
+void AddLaptop(Laptop *&laptop, int &laptopsCount) {
+	system("cls");
+	int count = 0;
+	cout << "How many laptops do you want to add?" << endl;
+	cin >> count;
+	Laptop *newLaptop = new Laptop[laptopsCount + count];
+
+	for (int i = 0; i < laptopsCount + count; i++) {
+		if (i >= laptopsCount) {
+			cout << "Monitor N" << i + 1 << " :" << endl;
+			newLaptop[i].CreateLaptop();
+			system("cls");
+			cout << "Added" << endl;
+		}
+		else
+		{
+			newLaptop[i] = laptop[i];
+		}
+
+	};
+
+	laptopsCount += count;
+
+	delete[] laptop;
+	laptop = newLaptop;
+
+}
+
+void LaptopList(Laptop *&laptop, int &laptopsCount) {
+	system("cls");
+	for (int i = 0; i < laptopsCount; i++)
+	{
+		cout << "*************************************************************" << endl;
+		cout << "Monitor N" << i + 1 << " :" << endl;
+		laptop[i].ShowLaptopInfo();
+		cout << "*************************************************************" << endl;
+	}
+}
+
+
 
 void Menu() {
 
@@ -128,10 +157,20 @@ int main() {
 		Додаткові вимоги : перевірка на введення ціни товару(повинна бути більше 0 грн.), а також на те, щоб ціна в грн.відповідала ціні в у.о.
 		Для обробки даних скористатися динамічним масивом покажчиків на структури відповідного типу.
 */
-	int computersCount = 0;
+	/*int computersCount = 0;
 	PC *computer = new PC[computersCount];
 	AddComputer(computer, computersCount);
-	ComputerList(computer, computersCount);
+	ComputerList(computer, computersCount);*/
+
+	//int monitorsCount = 0;
+	//Monitor *monitor = new Monitor[monitorsCount];
+	//AddMonitor(monitor, monitorsCount);
+	//MonitorList(monitor, monitorsCount);
+
+	int laptopsCount = 0;
+	Laptop *laptop = new Laptop[laptopsCount];
+	AddLaptop(laptop, laptopsCount);
+	LaptopList(laptop, laptopsCount);
 
 
 	

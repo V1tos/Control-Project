@@ -115,11 +115,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Display.cpp" />
+    <ClCompile Include="Laptop.cpp" />
+    <ClCompile Include="Monitor.cpp" />
     <ClCompile Include="PC.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Display.h" />
     <ClInclude Include="HardWare.h" />
+    <ClInclude Include="Laptop.h" />
+    <ClInclude Include="Monitor.h" />
     <ClInclude Include="PC.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

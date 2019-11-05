@@ -7,6 +7,7 @@ using namespace std;
 struct Processor 
 { 
 	string name; 
+	int coreCount;
 	double freq1; 
 	double freq2; 
 	int generation; 

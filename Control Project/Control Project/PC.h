@@ -1,9 +1,5 @@
 #pragma once
-#include <iostream>
-#include <string>
 #include "HardWare.h"
-
-using namespace std;
 
 
 struct PC
@@ -11,13 +7,13 @@ struct PC
 	string computerName;
 	string devCountry;
 	int powerSupply;
-	int uahPrice, dolPrice;
 	int weight;
 	int safeGuard;
-	Processor PCprocessor;
+	Processor PCProcessor;
 	RAM PCRAM;
 	Videocard PCVideoCard;
 	DiskDrive PCDiskDrive;
+	int price;
 
 	struct { int width; int height; int length; }Size;
 

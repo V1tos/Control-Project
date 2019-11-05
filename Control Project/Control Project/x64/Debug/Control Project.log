@@ -1,2 +1,7 @@
-﻿  Source.cpp
+﻿  Display.cpp
+  Laptop.cpp
+  Monitor.cpp
+  PC.cpp
+  Source.cpp
+  Generating Code...
   Control Project.vcxproj -> C:\Users\palamarchuk\Desktop\Control\Control Project\x64\Debug\Control Project.exe
