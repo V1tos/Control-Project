@@ -25,5 +25,5 @@ $RECYCLE.BIN/
 *.lnk
 
 
-/Control Project/Debug
+/Control Project/x64
 /Control Project/.vs
