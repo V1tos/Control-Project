@@ -4,9 +4,9 @@
 
 void Laptop::CreateLaptop() {
 
-	cout << "Enter name (ex: Samsung, LG) : ";
+	cout << "Enter name (ex: Samsung, LG): ";
 	cin >> laptopName;
-	cout << "Enter country : ";
+	cout << "Enter country: ";
 	cin >> devCountry;
 	cout << "Enter pocessor name (ex: Intel, AMD): ";
 	cin >> LaptopProcessor.name;

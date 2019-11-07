@@ -1,7 +1,8 @@
-﻿  Display.cpp
-  Laptop.cpp
-  Monitor.cpp
-  PC.cpp
-  Source.cpp
-  Generating Code...
-  Control Project.vcxproj -> C:\Users\palamarchuk\Desktop\Control\Control Project\x64\Debug\Control Project.exe
+﻿  MobilePhone.cpp
+c:\users\palamarchuk\desktop\control\control project\control project\mobilephone.cpp(1): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+c:\users\palamarchuk\desktop\control\control project\control project\mobilephone.cpp(37): error C2065: 'LaptopDisplay': undeclared identifier
+c:\users\palamarchuk\desktop\control\control project\control project\mobilephone.cpp(38): error C2065: 'LaptopRAM': undeclared identifier
+c:\users\palamarchuk\desktop\control\control project\control project\mobilephone.cpp(39): error C2065: 'LaptopVideoCard': undeclared identifier
+c:\users\palamarchuk\desktop\control\control project\control project\mobilephone.cpp(40): error C2065: 'LaptopDiskDrive': undeclared identifier
+c:\users\palamarchuk\desktop\control\control project\control project\mobilephone.cpp(43): error C2065: 'Size': undeclared identifier
+c:\users\palamarchuk\desktop\control\control project\control project\mobilephone.cpp(44): error C2065: 'batteryPower': undeclared identifier
