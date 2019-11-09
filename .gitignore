@@ -56,7 +56,7 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-/Control Project/x64
-/Control Project/Debug
-/Control Project/.vs
+Control Project/x64
+Control Project/Debug
+Control Project/.vs
 
