@@ -34,7 +34,7 @@ void Laptop::CreateLaptop() {
 	cin >> LaptopDiskDrive.memory;
 	cout << "Enter displays refresh rate (GHz): ";
 	cin >> LaptopDisplay.refreshRate;
-	cout << "Enter display's diagonal (in): " << endl;
+	cout << "Enter display's diagonal (in): ";
 	cin >> LaptopDisplay.diagonal;
 	cout << "Enter computers weight (kg): ";
 	cin >> weight;
@@ -51,6 +51,8 @@ void Laptop::CreateLaptop() {
 	cin >> safeGuard;
 	cout << "Enter price (UAH): ";
 	cin >> price;
+	cout << "Enter count: ";
+	cin >> count;
 }
 
 
@@ -68,4 +70,5 @@ void Laptop::ShowLaptopInfo() {
 	cout << "Battery power:    " << batteryPower << " kW" << endl;
 	cout << "Safeguard:        " << safeGuard << " month" << endl;
 	cout << "Price:            " << price << " UAH" << endl;
+	cout << "Count:            " << count << endl;
 }

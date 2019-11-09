@@ -47,6 +47,8 @@ void PC::CreateComputer() {
 	cin >> safeGuard;
 	cout << "Enter price (UAH): ";
 	cin >> price;
+	cout << "Enter count: ";
+	cin >> count;
 }
 
 
@@ -63,4 +65,5 @@ void PC::ShowComputerInfo() {
 	cout << "Power supply:     " << powerSupply << " kW" << endl;
 	cout << "Safeguard:        " << safeGuard << " month" << endl;
 	cout << "Price:            " << price << " UAH" << endl;
+	cout << "Count:            " << count << endl;
 }

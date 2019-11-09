@@ -9,11 +9,11 @@ void Mobile::CreateMobile() {
 	cin >> mobileName;
 	cout << "Enter country: ";
 	cin >> devCountry;
-	cout << "Enter display's diagonal (in): " << endl;
+	cout << "Enter display's diagonal (in): ";
 	cin >> displayDiagonal;
-	cout << "Enter main camera's megapixels count: " << endl;
+	cout << "Enter main camera's megapixels count: ";
 	cin >> mainCamera;
-	cout << "Enter front camera's megapixels count: " << endl;
+	cout << "Enter front camera's megapixels count: ";
 	cin >> frontCamera;
 	cout << "Enter RAM's memory (Gb): ";
 	cin >>  RAMmemory;
@@ -27,6 +27,8 @@ void Mobile::CreateMobile() {
 	cin >> safeGuard;
 	cout << "Enter price (UAH): ";
 	cin >> price;
+	cout << "Enter count: ";
+	cin >> count;
 }
 
 
@@ -43,4 +45,5 @@ void Mobile::ShowMobileInfo() {
 	cout << "Weight:           " << weight << " g" << endl;
 	cout << "Safeguard:        " << safeGuard << " month" << endl;
 	cout << "Price:            " << price << " UAH" << endl;
+	cout << "Count:            " << count << endl;
 }

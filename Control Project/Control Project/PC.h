@@ -14,6 +14,7 @@ struct PC
 	Videocard PCVideoCard;
 	DiskDrive PCDiskDrive;
 	int price;
+	unsigned int count;
 
 	struct { int width; int height; int length; }Size;
 

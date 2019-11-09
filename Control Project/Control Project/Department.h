@@ -3,7 +3,7 @@
 #include "PC.h"
 #include "Monitor.h"
 #include "MobilePhone.h"
-
+#include "Functions.h"
 
 
 struct Department

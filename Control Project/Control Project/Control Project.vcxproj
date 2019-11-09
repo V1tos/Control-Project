@@ -125,6 +125,7 @@
   <ItemGroup>
     <ClInclude Include="Department.h" />
     <ClInclude Include="Display.h" />
+    <ClInclude Include="Functions.h" />
     <ClInclude Include="HardWare.h" />
     <ClInclude Include="Laptop.h" />
     <ClInclude Include="MobilePhone.h" />

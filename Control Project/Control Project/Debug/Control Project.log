@@ -1,2 +1,3 @@
 ﻿  Source.cpp
-  Control Project.vcxproj -> D:\ШАГ\Програмування\My Projects\Control Project\Debug\Control Project.exe
+d:\шаг\програмування\control project\control project\control project\functions.h(16): warning C4101: 'arr': unreferenced local variable
+  Control Project.vcxproj -> D:\ШАГ\Програмування\Control Project\Control Project\Debug\Control Project.exe

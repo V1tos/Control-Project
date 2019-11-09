@@ -17,12 +17,14 @@ void Monitor::CreateMonitor() {
 	cin >> weight;
 	cout << "Enter colours count: ";
 	cin >> coloursCount;
-	cout << "Enter display's diagonal (in): " << endl;
+	cout << "Enter display's diagonal (in): ";
 	cin >> monitorsDisplay.diagonal;
 	cout << "Enter safeguard (month): ";
 	cin >> safeGuard;
 	cout << "Enter price (UAH): ";
 	cin >> price;
+	cout << "Enter count: ";
+	cin >> count;
 	
 }
 
@@ -38,4 +40,5 @@ void Monitor::ShowMonitorInfo() {
 	cout << "Diagonal:         " << monitorsDisplay.diagonal << " in"  << endl;
 	cout << "Safeguard:        " << safeGuard << " month" << endl;
 	cout << "Price:            " << price << " UAH" << endl;
+	cout << "Count:            " << count << endl;
 }

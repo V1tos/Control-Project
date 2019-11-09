@@ -20,6 +20,7 @@ struct Mobile
 	int RAMmemory;
 	int memory;
 	int price;
+	unsigned int count;
 
 
 	void CreateMobile();

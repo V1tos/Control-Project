@@ -10,7 +10,8 @@ struct Monitor {
 	int weight;
 	int coloursCount;
 	int safeGuard;
-	int price;
+	unsigned int price;
+	int count;
 	Display monitorsDisplay;
 	
 

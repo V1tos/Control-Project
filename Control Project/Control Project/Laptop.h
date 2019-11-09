@@ -14,7 +14,8 @@ struct Laptop
 	Videocard LaptopVideoCard;
 	DiskDrive LaptopDiskDrive;
 	Display LaptopDisplay;
-	int price;
+	unsigned int price;
+	int count;
 
 	struct { int width; int height; int length; }Size;
 

@@ -1,249 +1,177 @@
 #include "Department.h"
 
-struct Printer
-{
 
-};
-
-template <typename T>
-void CopyData(T data1, T data2) {
-	data2 = data1;
-}
-
-void AddComputer(PC *&computer, int &computersCount) {
-	system("cls");
-	int count = 0;
-	cout << "How many PC do you want to add?" << endl;
-	cin >> count;
-	PC *newComputer = new PC[computersCount + count];
-
-
-
-	for (int i = 0; i < computersCount + count; i++) {
-		if (i >= computersCount) {
-			cout << "PC N" << i + 1 << " :" << endl;
-			newComputer[i].CreateComputer();
-			system("cls");
-			cout << "Added" << endl;
-		}
-		else
-		{
-			CopyData(computer[i],newComputer[i]);
-		}
-
-	};
-
-
-
-	computersCount += count;
-
-
-
-	delete[] computer;
-	computer = newComputer;
-
-
-}
-
-void ComputerList(PC *&computer, int &computersCount) {
-	system("cls");
-	for (int i = 0; i < computersCount; i++)
-	{
-		cout << "*************************************************************" << endl;
-		cout << "PC N" << i + 1 <<" :" << endl;
-		computer[i].ShowComputerInfo();
-		cout << "*************************************************************" << endl;
-	}
-
-}
-
-
-void AddMonitor(Monitor *&monitor, int &monitorsCount) {
-	system("cls");
-	int count = 0;
-	cout << "How many monitors do you want to add?" << endl;
-	cin >> count;
-	Monitor *newMonitor = new Monitor[monitorsCount + count];
-
-	for (int i = 0; i < monitorsCount + count; i++) {
-		if (i >= monitorsCount) {
-			cout << "Monitor N" << i + 1 << " :" << endl;
-			newMonitor[i].CreateMonitor();
-			system("cls");
-			cout << "Added" << endl;
-		}
-		else
-		{
-			CopyData(monitor[i],newMonitor[i]);
-		}
-
-	};
-
-	monitorsCount += count;
-
-	delete[] monitor;
-	monitor = newMonitor;
-
-}
-
-void DeleteMonitor(Monitor *&monitor, int &monitorsCount) {
-	system("cls");
-
-	if (monitorsCount == 1) {
-		Monitor *newMonitor = new Monitor[monitorsCount - 1];
-		monitorsCount--;
-		delete[] monitor;
-		monitor = newMonitor;
-		cout << "Deleted" << endl;
-
-
-	}
-	else if (monitorsCount == 0) {
-		cout << "There aren't clients" << endl;
-	}
-	else
-	{
-		Monitor *newMonitor = new Monitor[monitorsCount - 1];
-		int number = 0;
-		cout << "Enter number of client (1 - " << monitorsCount << ")" << endl;
-		cin >> number;
-
-
-		for (int i = 0; i < monitorsCount; i++) {
-			if (i >= number - 1 && i < monitorsCount - 1) {
-				swap(peoples[i].name, peoples[i + 1].name);
-				swap(peoples[i].surname, peoples[i + 1].surname);
-				swap(peoples[i].Date.day, peoples[i + 1].Date.day);
-				swap(peoples[i].Date.month, peoples[i + 1].Date.month);
-				swap(peoples[i].Date.year, peoples[i + 1].Date.year);
-			}
-
-		}
-
-		for (int i = 0; i < peoplesCount - 1; i++) {
-			delClient[i].name = peoples[i].name;
-			delClient[i].surname = peoples[i].surname;
-			delClient[i].Date.day = peoples[i].Date.day;
-			delClient[i].Date.month = peoples[i].Date.month;
-			delClient[i].Date.year = peoples[i].Date.year;
-		}
-
-
-		cout << "Deleted" << endl;
-
-		peoplesCount--;
-
-
-		delete[] peoples;
-		peoples = delClient;
-
-
-	}
-
-
-
-}
-
-void MonitorList(Monitor *&monitor, int &monitorsCount) {
-	system("cls");
-	for (int i = 0; i < monitorsCount; i++)
-	{
-		cout << "*************************************************************" << endl;
-		cout << "Monitor N" << i + 1 << " :" << endl;
-		monitor[i].ShowMonitorInfo();
-		cout << "*************************************************************" << endl;
-	}
-}
-
-void AddLaptop(Laptop *&laptop, int &laptopsCount) {
-	system("cls");
-	int count = 0;
-	cout << "How many laptops do you want to add?" << endl;
-	cin >> count;
-	Laptop *newLaptop = new Laptop[laptopsCount + count];
-
-	for (int i = 0; i < laptopsCount + count; i++) {
-		if (i >= laptopsCount) {
-			cout << "Laptop N" << i + 1 << " :" << endl;
-			newLaptop[i].CreateLaptop();
-			system("cls");
-			cout << "Added" << endl;
-		}
-		else
-		{
-			CopyData(laptop[i], newLaptop[i]);
-		}
-
-	};
-
-	laptopsCount += count;
-
-	delete[] laptop;
-	laptop = newLaptop;
-
-}
-
-
-
-void LaptopList(Laptop *&laptop, int &laptopsCount) {
-	system("cls");
-	for (int i = 0; i < laptopsCount; i++)
-	{
-		cout << "*************************************************************" << endl;
-		cout << "Laptop N" << i + 1 << " :" << endl;
-		laptop[i].ShowLaptopInfo();
-		cout << "*************************************************************" << endl;
-	}
-}
-
-void AddMobile(Mobile *&mobile, int &mobilesCount) {
-	system("cls");
-	int count = 0;
-	cout << "How many mobilephones do you want to add?" << endl;
-	cin >> count;
-	Mobile *newMobile = new Mobile[mobilesCount + count];
-
-	for (int i = 0; i < mobilesCount + count; i++) {
-		if (i >= mobilesCount) {
-			cout << "Mobile N" << i + 1 << " :" << endl;
-			newMobile[i].CreateMobile();
-			system("cls");
-			cout << "Added" << endl;
-		}
-		else
-		{
-			CopyData(mobile[i], newMobile[i]);
-		}
-
-	};
-
-	mobilesCount += count;
-
-	delete[] mobile;
-	mobile = newMobile;
-
-}
-
-
-
-void MobileList(Mobile *&mobile, int &mobilesCount) {
-	system("cls");
-	for (int i = 0; i < mobilesCount; i++)
-	{
-		cout << "*************************************************************" << endl;
-		cout << "Mobile N" << i + 1 << " :" << endl;
-		mobile[i].ShowMobileInfo();
-		cout << "*************************************************************" << endl;
-	}
-}
-
-
+//Заповнення бази даних
+//Перегляд усіх даних
+//Доповнення бази даних новим записом
+//Видалення із бази даних
+//Упорядкування по полях : тип товару, ціна
+//Пошук : характеристики комп'ютера марки ХХ 
+//Вибірка : принтери за ціною не більш Y; товари, яких на складі залишилося менше 5 штук
+//Корекція : зміна ціни в гривнях, у зв'язку зі зміною курсу долара 
+//Табличний звіт : інформація про товари; упорядкування по типах(окремо - принтери, комп'ютери, монітори тощо) 
+//Додаткові вимоги : перевірка на введення ціни товару(повинна бути більше 0 грн.), а також на те, щоб ціна в грн.відповідала ціні в у.о.
+//Для обробки даних скористатися динамічним масивом покажчиків на структури відповідного типу.
 
 void Menu() {
-	Department department;
+	Department CTDepartment; //Computer's Technique 
+	bool exit = false;
+	short mainChoice = 0, addChoice = 0, delChoice = 0, searchChoice = 0, filterChoice = 0, changeChoice = 0, infoChoice = 0;
 
-	cout <<""
 
+	Start();
+	while (!exit) {
+		system("cls");
+		cout << "1 - Add new element\n2 - Delete element\n3 - Sort by price\n4 - Search by name\n5 - Filter\n6 - Change price\n7 - Show information\n0 - Exit\nYour choice: ";
+		cin >> mainChoice;
+
+		switch (mainChoice)
+		{
+		case 1:
+			system("cls");
+			cout << "1 - Add PC\n2 - Add laptop\n3 - Add monitor\n4 - Add mobilephone\nYour choice: ";
+			cin >> addChoice;
+			switch (addChoice)
+			{
+			case 1:
+				AddComputer(CTDepartment.pc, CTDepartment.pcCount);
+				break;
+			case 2:
+				AddLaptop(CTDepartment.laptop, CTDepartment.laptopsCount);
+				break;
+			case 3:
+				AddMonitor(CTDepartment.monitor, CTDepartment.monitorsCount);
+				break;
+			case 4:
+				AddMobile(CTDepartment.mobile, CTDepartment.mobilesCount);
+				break;
+			default:
+				break;
+			}
+			break;
+		case 2:
+			system("cls");
+			cout << "1 - Delete PC\n2 - Delete laptop\n3 - Delete monitor\n4 - Delete mobilephone\nYour choice: ";
+			cin >> delChoice;
+			switch (delChoice)
+			{
+			case 1:
+				DeleteComputer(CTDepartment.pc, CTDepartment.pcCount);
+				break;
+			case 2:
+				DeleteLaptop(CTDepartment.laptop, CTDepartment.laptopsCount);
+				break;
+			case 3:
+				DeleteMonitor(CTDepartment.monitor, CTDepartment.monitorsCount);
+				break;
+			case 4:
+				DeleteMobile(CTDepartment.mobile, CTDepartment.mobilesCount);
+				break;
+			default:
+				break;
+			}
+
+			break;
+		case 3:
+			SortByPrice(CTDepartment.pc, CTDepartment.pcCount, CTDepartment.laptop, CTDepartment.laptopsCount, CTDepartment.monitor, CTDepartment.monitorsCount, CTDepartment.mobile, CTDepartment.mobilesCount);
+			break;
+		case 4:
+			system("cls");
+			cout << "1 - Search PC\n2 - Search laptop\n3 - Search monitor\n4 - Search mobilephone\nYour choice: ";
+			cin >> searchChoice;
+			switch (searchChoice)
+			{
+			case 1:
+				SearchComputer(CTDepartment.pc, CTDepartment.pcCount);
+				break;
+			case 2:
+				SearchLaptop(CTDepartment.laptop, CTDepartment.laptopsCount);
+				break;
+			case 3:
+				SearchMonitor(CTDepartment.monitor, CTDepartment.monitorsCount);
+				break;
+			case 4:
+				SearchMobile(CTDepartment.mobile, CTDepartment.mobilesCount);
+				break;
+			default:
+				break;
+			}
+			break;
+		case 5:
+			system("cls");
+			cout << "1 - Filter by price\n2 - Filter by count\nYour choice: ";
+			cin >> filterChoice;
+			switch (filterChoice)
+			{
+			case 1:
+				FilterByPrice(CTDepartment.pc, CTDepartment.pcCount, CTDepartment.laptop, CTDepartment.laptopsCount, CTDepartment.monitor, CTDepartment.monitorsCount, CTDepartment.mobile, CTDepartment.mobilesCount);
+				break;
+			case 2:
+				FilterByCount(CTDepartment.pc, CTDepartment.pcCount, CTDepartment.laptop, CTDepartment.laptopsCount, CTDepartment.monitor, CTDepartment.monitorsCount, CTDepartment.mobile, CTDepartment.mobilesCount);
+				break;
+			default:
+				break;
+			}
+			break;
+		case 6:
+			system("cls");
+			cout << "1 - Change PC\n2 - Change laptop\n3 - Change monitor\n4 - Change mobilephone\nYour choice: ";
+			cin >> changeChoice;
+			switch (changeChoice)
+			{
+			case 1:
+				ChangeComputerPrice(CTDepartment.pc, CTDepartment.pcCount);
+				break;
+			case 2:
+				ChangeLaptopPrice(CTDepartment.laptop, CTDepartment.laptopsCount);
+				break;
+			case 3:
+				ChangeMonitorPrice(CTDepartment.monitor, CTDepartment.monitorsCount);
+				break;
+			case 4:
+				ChangeMobilePrice(CTDepartment.mobile, CTDepartment.mobilesCount);
+				break;
+			default:
+				break;
+			}
+
+			break;
+		case 7:
+			system("cls");
+			cout << "1 - Show PC information\n2 - Show laptop information\n3 - Show monitor information\n4 - Show mobilephone information\n5 - Show all information\nYour choice: ";
+			cin >> infoChoice;
+			switch (infoChoice)
+			{
+			case 1:
+				ComputerList(CTDepartment.pc, CTDepartment.pcCount);
+				break;
+			case 2:
+				LaptopList(CTDepartment.laptop, CTDepartment.laptopsCount);
+				break;
+			case 3:
+				MonitorList(CTDepartment.monitor, CTDepartment.monitorsCount);
+				break;
+			case 4:
+				MobileList(CTDepartment.mobile, CTDepartment.mobilesCount);
+				break;
+			case 5:
+				ShowAllList(CTDepartment.pc, CTDepartment.pcCount, CTDepartment.laptop, CTDepartment.laptopsCount, CTDepartment.monitor, CTDepartment.monitorsCount, CTDepartment.mobile, CTDepartment.mobilesCount);
+				break;
+			default:
+				break;
+			}
+
+			break;
+		case 0:
+			system("cls");
+			exit = true;
+			break;
+		default:
+			cout << "Wrong choice!\nTry again" << endl;
+			break;
+		}
+
+	}
 
 
 
@@ -251,37 +179,8 @@ void Menu() {
 
 int main() {
 
-	/*int computersCount = 0;
-	PC *computer = new PC[computersCount];
-	AddComputer(computer, computersCount);
-	ComputerList(computer, computersCount);*/
-
-	//int monitorsCount = 0;
-	//Monitor *monitor = new Monitor[monitorsCount];
-	//AddMonitor(monitor, monitorsCount);
-	//MonitorList(monitor, monitorsCount);
-
-
+	Menu();
 	
-
-	/*int laptopsCount = 0;
-	Laptop *laptop = new Laptop[laptopsCount];*/
-	
-	/*AddLaptop(department.laptop, department.laptopsCount);
-	LaptopList(department.laptop, department.laptopsCount);*/
-
-	
-	
-	 
-	
-	
-
-
-
-
-
-
-
 	system("pause");
 	return 0;
 }
