@@ -180,7 +180,7 @@ void Menu() {
 int main() {
 
 	Menu();
-	
+	/*asdasdasd*/
 	system("pause");
 	return 0;
 }
