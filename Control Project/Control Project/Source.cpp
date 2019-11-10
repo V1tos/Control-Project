@@ -18,6 +18,8 @@ void Menu() {
 	bool exit = false;
 	short mainChoice = 0, addChoice = 0, delChoice = 0, searchChoice = 0, filterChoice = 0, changeChoice = 0, infoChoice = 0;
 
+	ReadFile(CTDepartment.pc, CTDepartment.pcCount);
+
 
 	Start();
 	while (!exit) {
@@ -180,7 +182,8 @@ void Menu() {
 int main() {
 
 	Menu();
-	/*asdasdasd*/
+	
 	system("pause");
 	return 0;
 }
+

@@ -1,6 +1,8 @@
 #pragma once
 #include <iostream>
 #include <string>
+#include <fstream>
+#include <iomanip>
 using namespace std;
 
 
@@ -58,6 +60,46 @@ void AddComputer(PC *&computer, int &computersCount) {
 
 	delete[] computer;
 	computer = newComputer;
+
+	string path = "PC.txt";
+	ofstream fout;
+	fout.open(path);
+
+	if (!fout.is_open()) {
+		cout << "No file" << endl;
+	}
+	else
+	{
+
+		fout << computersCount << endl;
+		for (int i = 0; i < computersCount; i++) {
+			fout << computer[i].computerName << endl;
+			fout << computer[i].devCountry << endl;
+			fout << computer[i].PCProcessor.name << endl;
+			fout << computer[i].PCProcessor.coreCount << endl;
+			fout << computer[i].PCProcessor.freq1 << endl;
+			fout << computer[i].PCProcessor.freq2 << endl;
+			fout << computer[i].PCProcessor.generation << endl;
+			fout << computer[i].PCRAM.type << endl;
+			fout << computer[i].PCRAM.freq << endl;
+			fout << computer[i].PCRAM.memory << endl;
+			fout << computer[i].PCVideoCard.name << endl;
+			fout << computer[i].PCVideoCard.memory << endl;
+			fout << computer[i].PCDiskDrive.type << endl;
+			fout << computer[i].PCDiskDrive.memory << endl;
+			fout << computer[i].weight << endl;
+			fout << computer[i].Size.width << endl;
+			fout << computer[i].Size.height << endl;
+			fout << computer[i].Size.length << endl;
+			fout << computer[i].powerSupply << endl;
+			fout << computer[i].safeGuard << endl;
+			fout << computer[i].price << endl;
+			fout << computer[i].count << endl;
+		}
+		
+	}
+
+	fout.close();
 
 	system("pause");
 }
@@ -783,4 +825,87 @@ void FilterByCount(PC *&computer, int &computersCount, Laptop *&laptop, int &lap
 
 	system("pause");
 }
+
+
+
+
+void ReadFile(PC *&computer, int &computersCount) {
+	int size = 0;
+	
+	char temp[255];
+	string path = "PC.txt";
+	ifstream readFile;
+
+	string tempHouseNumber;
+
+	readFile.open(path);
+	if (!readFile.is_open()) {
+		cout << "Can't open file!" << endl;
+	}
+	else {
+		readFile.getline(temp, 255);  
+		size = atoi(temp);
+		PC *newComputer = new PC[size];
+		for (int i = 0; i < size; i++)
+		{
+			readFile.getline(temp, 255);
+			newComputer[i].computerName = temp;
+			readFile.getline(temp, 255);
+			newComputer[i].devCountry = temp;
+			readFile.getline(temp, 255);
+			newComputer[i].PCProcessor.name = temp;
+			readFile.getline(temp, 255);
+			newComputer[i].PCProcessor.coreCount = atoi(temp);
+			readFile.getline(temp, 255);
+			newComputer[i].PCProcessor.freq1 = atof(temp);
+			readFile.getline(temp, 255);
+			newComputer[i].PCProcessor.freq2 = atof(temp);
+			readFile.getline(temp, 255);
+			newComputer[i].PCProcessor.generation = atoi(temp);
+			readFile.getline(temp, 255);
+			newComputer[i].PCRAM.type = temp;
+			readFile.getline(temp, 255);
+			newComputer[i].PCRAM.freq = atoi(temp);
+			readFile.getline(temp, 255);
+			newComputer[i].PCRAM.memory = atoi(temp);
+			readFile.getline(temp, 255);
+			newComputer[i].PCVideoCard.name = temp;
+			readFile.getline(temp, 255);
+			newComputer[i].PCVideoCard.memory = atoi(temp);
+			readFile.getline(temp, 255);
+			newComputer[i].PCDiskDrive.type = temp;
+			readFile.getline(temp, 255);
+			newComputer[i].PCDiskDrive.memory = atoi(temp);
+			readFile.getline(temp, 255);
+			newComputer[i].weight = atoi(temp);
+			readFile.getline(temp, 255);
+			newComputer[i].Size.width = atoi(temp);
+			readFile.getline(temp, 255);
+			newComputer[i].Size.height = atoi(temp);
+			readFile.getline(temp, 255);
+			newComputer[i].Size.length = atoi(temp);
+			readFile.getline(temp, 255);
+			newComputer[i].powerSupply = atoi(temp);
+			readFile.getline(temp, 255);
+			newComputer[i].safeGuard = atoi(temp);
+			readFile.getline(temp, 255);
+			newComputer[i].price = atoi(temp);
+			readFile.getline(temp, 255);
+			newComputer[i].count = atoi(temp);
+
+		}
+
+		computersCount += size;
+
+		
+		/*delete computer;*/
+		computer = newComputer;
+	}
+	readFile.close();
+
+
+	
+
+}
+
 
