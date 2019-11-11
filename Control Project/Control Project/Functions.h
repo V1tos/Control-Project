@@ -47,7 +47,7 @@ void AddComputer(PC *&computer, int &computersCount) {
 
 	for (int i = 0; i < computersCount + count; i++) {
 		if (i >= computersCount) {
-			cout << "PC ¹" << i + 1 << " :" << endl;
+			cout << "PC N" << i + 1 << " :" << endl;
 			newComputer[i].CreateComputer();
 			cout << "Added" << endl;
 			system("pause");
@@ -78,10 +78,10 @@ void ComputerList(PC *&computer, int &computersCount) {
 
 	for (int i = 0; i < computersCount; i++)
 	{
-		cout << "*************************************************************" << endl;
-		cout << "PC ¹" << i + 1 << " :" << endl;
+		cout << "*****************************************************************" << endl;
+		cout << "PC N" << i + 1 << " :" << endl;
 		computer[i].ShowComputerInfo();
-		cout << "*************************************************************" << endl;
+		cout << "*****************************************************************" << endl;
 	}
 
 }
@@ -106,7 +106,7 @@ void DeleteComputer(PC *&computer, int &computersCount) {
 		ComputerList(computer, computersCount);
 		PC *newComputer = new PC[computersCount - 1];
 		int number = 0;
-		cout << "Enter PC ¹: ";
+		cout << "Enter PC N: ";
 		cin >> number;
 		system("cls");
 
@@ -150,7 +150,7 @@ void ChangeComputerPrice(PC *&computer, int &computersCount) {
 	//	cout << "*************************************************************" << endl;
 	//}
 	ComputerList(computer, computersCount);
-	cout << "Enter PC ¹: ";
+	cout << "Enter PC N: ";
 	cin >> pcNumber;
 	system("cls");
 	cout << "Enter new price: ";
@@ -308,10 +308,10 @@ void PCReadFile(PC *&computer, int &computersCount) {
 void MonitorList(Monitor *&monitor, int &monitorsCount) {
 	for (int i = 0; i < monitorsCount; i++)
 	{
-		cout << "*************************************************************" << endl;
-		cout << "Monitor ¹" << i + 1 << " :" << endl;
+		cout << "*****************************************************************" << endl;
+		cout << "Monitor N" << i + 1 << " :" << endl;
 		monitor[i].ShowMonitorInfo();
-		cout << "*************************************************************" << endl;
+		cout << "*****************************************************************" << endl;
 	}
 
 }
@@ -326,7 +326,7 @@ void AddMonitor(Monitor *&monitor, int &monitorsCount) {
 
 	for (int i = 0; i < monitorsCount + count; i++) {
 		if (i >= monitorsCount) {
-			cout << "Monitor ¹" << i + 1 << " :" << endl;
+			cout << "Monitor N" << i + 1 << " :" << endl;
 			newMonitor[i].CreateMonitor();
 			cout << "Added" << endl;
 			system("pause");
@@ -365,7 +365,7 @@ void DeleteMonitor(Monitor *&monitor, int &monitorsCount) {
 		MonitorList(monitor, monitorsCount);
 		Monitor *newMonitor = new Monitor[monitorsCount - 1];
 		int number = 0;
-		cout << "Enter Monitor ¹: ";
+		cout << "Enter Monitor N: ";
 		cin >> number;
 		system("cls");
 
@@ -403,7 +403,7 @@ void ChangeMonitorPrice(Monitor *&monitor, int &monitorsCount) {
 	unsigned int monitorNumber = 0;
 	
 	MonitorList(monitor, monitorsCount);
-	cout << "Enter Monitor ¹: ";
+	cout << "Enter Monitor N: ";
 	cin >> monitorNumber;
 	system("cls");
 	cout << "Enter new price: ";
@@ -528,10 +528,10 @@ void MonitorReadFile(Monitor *&monitor, int &monitorsCount) {
 void LaptopList(Laptop *&laptop, int &laptopsCount) {
 	for (int i = 0; i < laptopsCount; i++)
 	{
-		cout << "*************************************************************" << endl;
-		cout << "Laptop ¹" << i + 1 << " :" << endl;
+		cout << "*****************************************************************" << endl;
+		cout << "Laptop N" << i + 1 << " :" << endl;
 		laptop[i].ShowLaptopInfo();
-		cout << "*************************************************************" << endl;
+		cout << "*****************************************************************" << endl;
 	}
 
 }
@@ -546,7 +546,7 @@ void AddLaptop(Laptop *&laptop, int &laptopsCount) {
 
 	for (int i = 0; i < laptopsCount + count; i++) {
 		if (i >= laptopsCount) {
-			cout << "Laptop ¹" << i + 1 << " :" << endl;
+			cout << "Laptop N" << i + 1 << " :" << endl;
 			newLaptop[i].CreateLaptop();
 			cout << "Added" << endl;
 			system("pause");
@@ -585,7 +585,7 @@ void DeleteLaptop(Laptop *&laptop, int &laptopsCount) {
 		LaptopList(laptop, laptopsCount);
 		Laptop *newLaptop = new Laptop[laptopsCount - 1];
 		int number = 0;
-		cout << "Enter Laptop ¹: ";
+		cout << "Enter Laptop N: ";
 		cin >> number;
 		system("cls");
 
@@ -624,7 +624,7 @@ void ChangeLaptopPrice(Laptop *&laptop, int &laptopsCount) {
 
 	LaptopList(laptop, laptopsCount);
 	
-	cout << "Enter Laptop : ¹";
+	cout << "Enter Laptop N:";
 	cin >> laptopNumber;
 	system("cls");
 	cout << "Enter new price: ";
@@ -784,10 +784,10 @@ void LaptopReadFile(Laptop *&laptop, int &laptopsCount) {
 void MobileList(Mobile *&mobile, int &mobilesCount) {
 	for (int i = 0; i < mobilesCount; i++)
 	{
-		cout << "*************************************************************" << endl;
+		cout << "*****************************************************************" << endl;
 		cout << "Mobile N" << i + 1 << " :" << endl;
 		mobile[i].ShowMobileInfo();
-		cout << "*************************************************************" << endl;
+		cout << "*****************************************************************" << endl;
 	}
 
 }
@@ -802,7 +802,7 @@ void AddMobile(Mobile *&mobile, int &mobilesCount) {
 
 	for (int i = 0; i < mobilesCount + count; i++) {
 		if (i >= mobilesCount) {
-			cout << "Mobile ¹" << i + 1 << " :" << endl;
+			cout << "Mobile N" << i + 1 << " :" << endl;
 			newMobile[i].CreateMobile();
 			cout << "Added" << endl;
 			system("pause");
@@ -844,7 +844,7 @@ void DeleteMobile(Mobile *&mobile, int &mobilesCount) {
 		MobileList(mobile, mobilesCount);
 		Mobile *newMobile = new Mobile[mobilesCount - 1];
 		int number = 0;
-		cout << "Enter Mobile ¹: ";
+		cout << "Enter Mobile N: ";
 		cin >> number;
 		system("cls");
 
@@ -883,7 +883,7 @@ void ChangeMobilePrice(Mobile *&mobile, int &mobilesCount) {
 	
 	MobileList(mobile, mobilesCount);
 
-	cout << "Enter Mobile ¹: ";
+	cout << "Enter Mobile N: ";
 	cin >> mobileNumber;
 	system("cls");
 	cout << "Enter new price: ";
@@ -1033,9 +1033,11 @@ void SortByPrice(PC *&computer, int &computersCount, Laptop *&laptop, int &lapto
 		}
 		else if (i >= computersCount + laptopsCount && i < computersCount + laptopsCount + monitorsCount) {
 			arr[i] = monitor[monitorIterator].price;
+			monitorIterator++;
 		}
-		else {
+		else if (i>= computersCount + laptopsCount + monitorsCount){
 			arr[i] = mobile[mobileIterator].price;
+			mobileIterator++;
 		}
 		
 	}
@@ -1057,18 +1059,22 @@ void SortByPrice(PC *&computer, int &computersCount, Laptop *&laptop, int &lapto
 			if (arr[i] == computer[j].price) {
 				cout << "PC:" << endl;
 				computer[j].ShowComputerInfo();
+				cout << "\n\n";
 			}
 			if (arr[i] == laptop[j].price) {
 				cout << "Laptop:" << endl;
 				laptop[j].ShowLaptopInfo();
+				cout << "\n\n";
 			}
 			if (arr[i] == monitor[j].price) {
 				cout << "Monitor:" << endl;
 				monitor[j].ShowMonitorInfo();
+				cout << "\n\n";
 			}
 			if (arr[i] == mobile[j].price) {
 				cout << "Mobilephone:" << endl;
 				mobile[j].ShowMobileInfo();
+				cout << "\n\n";
 			}
 		}
 	}
@@ -1094,9 +1100,11 @@ void FilterByPrice(PC *&computer, int &computersCount, Laptop *&laptop, int &lap
 		}
 		else if (i >= computersCount + laptopsCount && i < computersCount + laptopsCount + monitorsCount) {
 			arr[i] = monitor[monitorIterator].price;
+			monitorIterator++;
 		}
 		else {
 			arr[i] = mobile[mobileIterator].price;
+			mobileIterator++;
 		}
 
 	}
@@ -1110,18 +1118,22 @@ void FilterByPrice(PC *&computer, int &computersCount, Laptop *&laptop, int &lap
 			if (arr[i] == computer[j].price&&arr[i] <= limitPrice) {
 				cout << "PC:" << endl;
 				computer[j].ShowComputerInfo();
+				cout << "\n\n";
 			}
 			if (arr[i] == laptop[j].price&&arr[i] <= limitPrice) {
 				cout << "Laptop:" << endl;
 				laptop[j].ShowLaptopInfo();
+				cout << "\n\n";
 			}
 			if (arr[i] == monitor[j].price&&arr[i] <= limitPrice) {
 				cout << "Monitor:" << endl;
 				monitor[j].ShowMonitorInfo();
+				cout << "\n\n";
 			}
 			if (arr[i] == mobile[j].price&&arr[i] <= limitPrice) {
 				cout << "Mobilephone:" << endl;
 				mobile[j].ShowMobileInfo();
+				cout << "\n\n";
 			}
 		}
 	}
@@ -1147,9 +1159,11 @@ void FilterByCount(PC *&computer, int &computersCount, Laptop *&laptop, int &lap
 		}
 		else if (i >= computersCount + laptopsCount && i < computersCount + laptopsCount + monitorsCount) {
 			arr[i] = monitor[monitorIterator].count;
+			monitorIterator++;
 		}
 		else {
 			arr[i] = mobile[mobileIterator].count;
+			mobileIterator++;
 		}
 
 	}
@@ -1163,18 +1177,22 @@ void FilterByCount(PC *&computer, int &computersCount, Laptop *&laptop, int &lap
 			if (arr[i] == computer[j].count&&arr[i] <= limitCount) {
 				cout << "PC:" << endl;
 				computer[j].ShowComputerInfo();
+				cout << "\n\n";
 			}
 			if (arr[i] == laptop[j].count&&arr[i] <= limitCount) {
 				cout << "Laptop:" << endl;
 				laptop[j].ShowLaptopInfo();
+				cout << "\n\n";
 			}
 			if (arr[i] == monitor[j].count&&arr[i] <= limitCount) {
 				cout << "Monitor:" << endl;
 				monitor[j].ShowMonitorInfo();
+				cout << "\n\n";
 			}
 			if (arr[i] == mobile[j].count&&arr[i] <= limitCount) {
 				cout << "Mobilephone:" << endl;
 				mobile[j].ShowMobileInfo();
+				cout << "\n\n";
 			}
 		}
 	}
