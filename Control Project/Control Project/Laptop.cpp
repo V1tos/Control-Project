@@ -4,7 +4,7 @@
 
 void Laptop::CreateLaptop() {
 
-	cout << "Enter name (ex: Samsung, LG): ";
+	cout << "Enter name (ex: Acer, Lenovo): ";
 	cin >> laptopName;
 	cout << "Enter country: ";
 	cin >> devCountry;
@@ -67,7 +67,7 @@ void Laptop::ShowLaptopInfo() {
 	cout << "Display:          " << LaptopDisplay.diagonal << " in (" << LaptopDisplay.refreshRate << " GHz)" << endl;
 	cout << "Weight:           " << weight << " kg" << endl;
 	cout << "Size:             " << Size.width << "x" << Size.height << "x" << Size.length << " mm" << endl;
-	cout << "Battery power:    " << batteryPower << " kW" << endl;
+	cout << "Battery power:    " << batteryPower << " W" << endl;
 	cout << "Safeguard:        " << safeGuard << " month" << endl;
 	cout << "Price:            " << price << " UAH" << endl;
 	cout << "Count:            " << count << endl;

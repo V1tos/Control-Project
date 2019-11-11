@@ -3,9 +3,11 @@
 #include <string>
 #include <fstream>
 #include <iomanip>
+#include <stdlib.h>
 using namespace std;
 
 
+void ComputerList(PC *&computer, int &computersCount);
 
 template <typename T>
 void CopyData(T &data1, T &data2) {
@@ -28,6 +30,11 @@ void Start() {
 	}
 }
 
+
+
+
+
+
 void AddComputer(PC *&computer, int &computersCount) {
 	system("cls");
 	int count = 0;
@@ -40,10 +47,11 @@ void AddComputer(PC *&computer, int &computersCount) {
 
 	for (int i = 0; i < computersCount + count; i++) {
 		if (i >= computersCount) {
-			cout << "PC N" << i + 1 << " :" << endl;
+			cout << "PC ¹" << i + 1 << " :" << endl;
 			newComputer[i].CreateComputer();
-			system("cls");
 			cout << "Added" << endl;
+			system("pause");
+			system("cls");
 		}
 		else
 		{
@@ -61,57 +69,30 @@ void AddComputer(PC *&computer, int &computersCount) {
 	delete[] computer;
 	computer = newComputer;
 
-	string path = "PC.txt";
-	ofstream fout;
-	fout.open(path);
+	
 
-	if (!fout.is_open()) {
-		cout << "No file" << endl;
-	}
-	else
+	
+}
+
+void ComputerList(PC *&computer, int &computersCount) {
+
+	for (int i = 0; i < computersCount; i++)
 	{
-
-		fout << computersCount << endl;
-		for (int i = 0; i < computersCount; i++) {
-			fout << computer[i].computerName << endl;
-			fout << computer[i].devCountry << endl;
-			fout << computer[i].PCProcessor.name << endl;
-			fout << computer[i].PCProcessor.coreCount << endl;
-			fout << computer[i].PCProcessor.freq1 << endl;
-			fout << computer[i].PCProcessor.freq2 << endl;
-			fout << computer[i].PCProcessor.generation << endl;
-			fout << computer[i].PCRAM.type << endl;
-			fout << computer[i].PCRAM.freq << endl;
-			fout << computer[i].PCRAM.memory << endl;
-			fout << computer[i].PCVideoCard.name << endl;
-			fout << computer[i].PCVideoCard.memory << endl;
-			fout << computer[i].PCDiskDrive.type << endl;
-			fout << computer[i].PCDiskDrive.memory << endl;
-			fout << computer[i].weight << endl;
-			fout << computer[i].Size.width << endl;
-			fout << computer[i].Size.height << endl;
-			fout << computer[i].Size.length << endl;
-			fout << computer[i].powerSupply << endl;
-			fout << computer[i].safeGuard << endl;
-			fout << computer[i].price << endl;
-			fout << computer[i].count << endl;
-		}
-		
+		cout << "*************************************************************" << endl;
+		cout << "PC ¹" << i + 1 << " :" << endl;
+		computer[i].ShowComputerInfo();
+		cout << "*************************************************************" << endl;
 	}
 
-	fout.close();
-
-	system("pause");
 }
 
 void DeleteComputer(PC *&computer, int &computersCount) {
 	system("cls");
 
 	if (computersCount == 1) {
-		PC *newComputer = new PC[computersCount - 1];
 		computersCount--;
 		delete[] computer;
-		computer = newComputer;
+		computer = nullptr;
 		cout << "Deleted" << endl;
 		system("pause");
 
@@ -122,9 +103,10 @@ void DeleteComputer(PC *&computer, int &computersCount) {
 	}
 	else
 	{
+		ComputerList(computer, computersCount);
 		PC *newComputer = new PC[computersCount - 1];
 		int number = 0;
-		cout << "Enter number of computer (1 - " << computersCount << ")" << endl;
+		cout << "Enter PC ¹: ";
 		cin >> number;
 		system("cls");
 
@@ -157,30 +139,18 @@ void DeleteComputer(PC *&computer, int &computersCount) {
 
 }
 
-void ComputerList(PC *&computer, int &computersCount) {
-	system("cls");
-	for (int i = 0; i < computersCount; i++)
-	{
-		cout << "*************************************************************" << endl;
-		cout << "PC N" << i + 1 << " :" << endl;
-		computer[i].ShowComputerInfo();
-		cout << "*************************************************************" << endl;
-	}
-	system("pause");
-
-}
-
 void ChangeComputerPrice(PC *&computer, int &computersCount) {
 	system("cls");
 	unsigned int pcNumber = 0;
-	for (int i = 0; i < computersCount; i++)
-	{
-		cout << "*************************************************************" << endl;
-		cout << "PC N" << i + 1 << " :" << endl;
-		computer[i].ShowComputerInfo();
-		cout << "*************************************************************" << endl;
-	}
-	cout << "Enter PC number: ";
+	//for (int i = 0; i < computersCount; i++)
+	//{
+	//	cout << "*************************************************************" << endl;
+	//	cout << "PC N" << i + 1 << " :" << endl;
+	//	computer[i].ShowComputerInfo();
+	//	cout << "*************************************************************" << endl;
+	//}
+	ComputerList(computer, computersCount);
+	cout << "Enter PC ¹: ";
 	cin >> pcNumber;
 	system("cls");
 	cout << "Enter new price: ";
@@ -192,7 +162,7 @@ void ChangeComputerPrice(PC *&computer, int &computersCount) {
 
 void SearchComputer(PC *&computer, int &computersCount) {
 	system("cls");
-
+	int tmp = 0;
 	string searchName;
 
 	cout << "Enter PC name: ";
@@ -202,16 +172,149 @@ void SearchComputer(PC *&computer, int &computersCount) {
 	{
 		if (computer[i].computerName == searchName) {
 			computer[i].ShowComputerInfo();
+			tmp++;
 		}
+	}
+
+	if (tmp == 0) {
+		cout << "Didn't find anything" << endl;
 	}
 
 	system("pause");
 
 }
 
+void PCWriteFile(PC *&computer, int &computersCount) {
+
+	string path = "PC.txt";
+	ofstream writeFile;
+	writeFile.open(path);
+
+	if (!writeFile.is_open()) {
+		cout << "Can't open file!" << endl;
+	}
+	else
+	{
+		writeFile << computersCount << endl;
+		for (int i = 0; i < computersCount; i++) {
+			writeFile << computer[i].computerName << endl;
+			writeFile << computer[i].devCountry << endl;
+			writeFile << computer[i].PCProcessor.name << endl;
+			writeFile << computer[i].PCProcessor.coreCount << endl;
+			writeFile << computer[i].PCProcessor.freq1 << endl;
+			writeFile << computer[i].PCProcessor.freq2 << endl;
+			writeFile << computer[i].PCProcessor.generation << endl;
+			writeFile << computer[i].PCRAM.type << endl;
+			writeFile << computer[i].PCRAM.freq << endl;
+			writeFile << computer[i].PCRAM.memory << endl;
+			writeFile << computer[i].PCVideoCard.name << endl;
+			writeFile << computer[i].PCVideoCard.memory << endl;
+			writeFile << computer[i].PCDiskDrive.type << endl;
+			writeFile << computer[i].PCDiskDrive.memory << endl;
+			writeFile << computer[i].weight << endl;
+			writeFile << computer[i].Size.width << endl;
+			writeFile << computer[i].Size.height << endl;
+			writeFile << computer[i].Size.length << endl;
+			writeFile << computer[i].powerSupply << endl;
+			writeFile << computer[i].safeGuard << endl;
+			writeFile << computer[i].price << endl;
+			writeFile << computer[i].count << endl;
+		}
+
+	}
+
+	writeFile.close();
+}
+
+void PCReadFile(PC *&computer, int &computersCount) {
+	
+	int size = 0;
+	char temp[255];
+	string path = "PC.txt";
+	ifstream readFile;
+
+	
+
+	readFile.open(path);
+	if (!readFile.is_open()) {
+		cout << "Can't open file!" << endl;
+	}
+	else {
+		readFile.getline(temp, 255);
+		size = atoi(temp);
+		PC *newComputer = new PC[size];
+		for (int i = 0; i < size; i++)
+		{
+			readFile.getline(temp, 255);
+			newComputer[i].computerName = temp;
+			readFile.getline(temp, 255);
+			newComputer[i].devCountry = temp;
+			readFile.getline(temp, 255);
+			newComputer[i].PCProcessor.name = temp;
+			readFile.getline(temp, 255);
+			newComputer[i].PCProcessor.coreCount = atoi(temp);
+			readFile.getline(temp, 255);
+			newComputer[i].PCProcessor.freq1 = atof(temp);
+			readFile.getline(temp, 255);
+			newComputer[i].PCProcessor.freq2 = atof(temp);
+			readFile.getline(temp, 255);
+			newComputer[i].PCProcessor.generation = atoi(temp);
+			readFile.getline(temp, 255);
+			newComputer[i].PCRAM.type = temp;
+			readFile.getline(temp, 255);
+			newComputer[i].PCRAM.freq = atoi(temp);
+			readFile.getline(temp, 255);
+			newComputer[i].PCRAM.memory = atoi(temp);
+			readFile.getline(temp, 255);
+			newComputer[i].PCVideoCard.name = temp;
+			readFile.getline(temp, 255);
+			newComputer[i].PCVideoCard.memory = atoi(temp);
+			readFile.getline(temp, 255);
+			newComputer[i].PCDiskDrive.type = temp;
+			readFile.getline(temp, 255);
+			newComputer[i].PCDiskDrive.memory = atoi(temp);
+			readFile.getline(temp, 255);
+			newComputer[i].weight = atoi(temp);
+			readFile.getline(temp, 255);
+			newComputer[i].Size.width = atoi(temp);
+			readFile.getline(temp, 255);
+			newComputer[i].Size.height = atoi(temp);
+			readFile.getline(temp, 255);
+			newComputer[i].Size.length = atoi(temp);
+			readFile.getline(temp, 255);
+			newComputer[i].powerSupply = atoi(temp);
+			readFile.getline(temp, 255);
+			newComputer[i].safeGuard = atoi(temp);
+			readFile.getline(temp, 255);
+			newComputer[i].price = atoi(temp);
+			readFile.getline(temp, 255);
+			newComputer[i].count = atoi(temp);
+
+		}
+
+		computersCount += size;
+
+		computer = newComputer;
+	}
+	readFile.close();
+
+}
 
 
 
+
+
+
+void MonitorList(Monitor *&monitor, int &monitorsCount) {
+	for (int i = 0; i < monitorsCount; i++)
+	{
+		cout << "*************************************************************" << endl;
+		cout << "Monitor ¹" << i + 1 << " :" << endl;
+		monitor[i].ShowMonitorInfo();
+		cout << "*************************************************************" << endl;
+	}
+
+}
 
 void AddMonitor(Monitor *&monitor, int &monitorsCount) {
 	system("cls");
@@ -223,10 +326,11 @@ void AddMonitor(Monitor *&monitor, int &monitorsCount) {
 
 	for (int i = 0; i < monitorsCount + count; i++) {
 		if (i >= monitorsCount) {
-			cout << "Monitor N" << i + 1 << " :" << endl;
+			cout << "Monitor ¹" << i + 1 << " :" << endl;
 			newMonitor[i].CreateMonitor();
-			system("cls");
 			cout << "Added" << endl;
+			system("pause");
+			system("cls");
 		}
 		else
 		{
@@ -239,17 +343,15 @@ void AddMonitor(Monitor *&monitor, int &monitorsCount) {
 
 	delete[] monitor;
 	monitor = newMonitor;
-	system("pause");
 }
 
 void DeleteMonitor(Monitor *&monitor, int &monitorsCount) {
 	system("cls");
 
 	if (monitorsCount == 1) {
-		Monitor *newMonitor = new Monitor[monitorsCount - 1];
 		monitorsCount--;
 		delete[] monitor;
-		monitor = newMonitor;
+		monitor = nullptr;
 		cout << "Deleted" << endl;
 		system("pause");
 
@@ -260,9 +362,10 @@ void DeleteMonitor(Monitor *&monitor, int &monitorsCount) {
 	}
 	else
 	{
+		MonitorList(monitor, monitorsCount);
 		Monitor *newMonitor = new Monitor[monitorsCount - 1];
 		int number = 0;
-		cout << "Enter number of monitor (1 - " << monitorsCount << ")" << endl;
+		cout << "Enter Monitor ¹: ";
 		cin >> number;
 		system("cls");
 
@@ -295,29 +398,12 @@ void DeleteMonitor(Monitor *&monitor, int &monitorsCount) {
 
 }
 
-void MonitorList(Monitor *&monitor, int &monitorsCount) {
-	system("cls");
-	for (int i = 0; i < monitorsCount; i++)
-	{
-		cout << "*************************************************************" << endl;
-		cout << "Monitor N" << i + 1 << " :" << endl;
-		monitor[i].ShowMonitorInfo();
-		cout << "*************************************************************" << endl;
-	}
-	system("pause");
-}
-
 void ChangeMonitorPrice(Monitor *&monitor, int &monitorsCount) {
 	system("cls");
 	unsigned int monitorNumber = 0;
-	for (int i = 0; i < monitorsCount; i++)
-	{
-		cout << "*************************************************************" << endl;
-		cout << "Monitor N" << i + 1 << " :" << endl;
-		monitor[i].ShowMonitorInfo();
-		cout << "*************************************************************" << endl;
-	}
-	cout << "Enter Monitor number: ";
+	
+	MonitorList(monitor, monitorsCount);
+	cout << "Enter Monitor ¹: ";
 	cin >> monitorNumber;
 	system("cls");
 	cout << "Enter new price: ";
@@ -329,7 +415,7 @@ void ChangeMonitorPrice(Monitor *&monitor, int &monitorsCount) {
 
 void SearchMonitor(Monitor *&monitor, int &monitorsCount) {
 	system("cls");
-
+	int tmp = 0;
 	string searchName;
 
 	cout << "Enter Monitor name: ";
@@ -338,15 +424,117 @@ void SearchMonitor(Monitor *&monitor, int &monitorsCount) {
 	for (int i = 0; i < monitorsCount; i++)
 	{
 		if (monitor[i].monitorName == searchName) {
+			tmp++;
 			monitor[i].ShowMonitorInfo();
 		}
+	}
+
+	if (tmp == 0) {
+		cout << "Didn't find anything" << endl;
 	}
 
 	system("pause");
 
 }
 
+void MonitorWriteFile(Monitor *&monitor, int &monitorsCount) {
 
+	string path = "Monitor.txt";
+	ofstream writeFile;
+	writeFile.open(path);
+
+	if (!writeFile.is_open()) {
+		cout << "Can't open file!" << endl;
+	}
+	else
+	{
+		writeFile << monitorsCount << endl;
+		for (int i = 0; i < monitorsCount; i++) {
+			writeFile << monitor[i].monitorName << endl;
+			writeFile << monitor[i].devCountry << endl;
+			writeFile << monitor[i].matrixType << endl;
+			writeFile << monitor[i].colour << endl;
+			writeFile << monitor[i].monitorsDisplay.diagonal << endl;
+			writeFile << monitor[i].monitorsDisplay.refreshRate << endl;
+			writeFile << monitor[i].coloursCount << endl;
+			writeFile << monitor[i].weight << endl;
+			writeFile << monitor[i].safeGuard << endl;
+			writeFile << monitor[i].price << endl;
+			writeFile << monitor[i].count << endl;
+		}
+
+	}
+
+	
+
+	writeFile.close();
+}
+
+void MonitorReadFile(Monitor *&monitor, int &monitorsCount) {
+
+	int size = 0;
+	char temp[255];
+	string path = "Monitor.txt";
+	ifstream readFile;
+
+
+	readFile.open(path);
+	if (!readFile.is_open()) {
+		cout << "Can't open file!" << endl;
+	}
+	else {
+		readFile.getline(temp, 255);
+		size = atoi(temp);
+		Monitor *newMonitor = new Monitor[size];
+		for (int i = 0; i < size; i++)
+		{
+			readFile.getline(temp, 255);
+			newMonitor[i].monitorName = temp;
+			readFile.getline(temp, 255);
+			newMonitor[i].devCountry = temp;
+			readFile.getline(temp, 255);
+			newMonitor[i].matrixType = temp;
+			readFile.getline(temp, 255);
+			newMonitor[i].colour = temp;
+			readFile.getline(temp, 255);
+			newMonitor[i].monitorsDisplay.diagonal = atof(temp);
+			readFile.getline(temp, 255);
+			newMonitor[i].monitorsDisplay.refreshRate = atoi(temp);
+			readFile.getline(temp, 255);
+			newMonitor[i].coloursCount = atoi(temp);
+			readFile.getline(temp, 255);
+			newMonitor[i].weight = atoi(temp);
+			readFile.getline(temp, 255);
+			newMonitor[i].safeGuard = atoi(temp);
+			readFile.getline(temp, 255);
+			newMonitor[i].price = atoi(temp);
+			readFile.getline(temp, 255);
+			newMonitor[i].count = atoi(temp);
+
+		}
+
+		monitorsCount += size;
+
+		monitor = newMonitor;
+	}
+	readFile.close();
+
+}
+
+
+
+
+
+void LaptopList(Laptop *&laptop, int &laptopsCount) {
+	for (int i = 0; i < laptopsCount; i++)
+	{
+		cout << "*************************************************************" << endl;
+		cout << "Laptop ¹" << i + 1 << " :" << endl;
+		laptop[i].ShowLaptopInfo();
+		cout << "*************************************************************" << endl;
+	}
+
+}
 
 void AddLaptop(Laptop *&laptop, int &laptopsCount) {
 	system("cls");
@@ -358,10 +546,11 @@ void AddLaptop(Laptop *&laptop, int &laptopsCount) {
 
 	for (int i = 0; i < laptopsCount + count; i++) {
 		if (i >= laptopsCount) {
-			cout << "Laptop N" << i + 1 << " :" << endl;
+			cout << "Laptop ¹" << i + 1 << " :" << endl;
 			newLaptop[i].CreateLaptop();
-			system("cls");
 			cout << "Added" << endl;
+			system("pause");
+			system("cls");
 		}
 		else
 		{
@@ -374,17 +563,15 @@ void AddLaptop(Laptop *&laptop, int &laptopsCount) {
 
 	delete[] laptop;
 	laptop = newLaptop;
-	system("pause");
 }
 
 void DeleteLaptop(Laptop *&laptop, int &laptopsCount) {
 	system("cls");
 
 	if (laptopsCount == 1) {
-		Laptop *newLaptop = new Laptop[laptopsCount - 1];
 		laptopsCount--;
 		delete[] laptop;
-		laptop = newLaptop;
+		laptop = nullptr;
 		cout << "Deleted" << endl;
 		system("pause");
 
@@ -395,9 +582,10 @@ void DeleteLaptop(Laptop *&laptop, int &laptopsCount) {
 	}
 	else
 	{
+		LaptopList(laptop, laptopsCount);
 		Laptop *newLaptop = new Laptop[laptopsCount - 1];
 		int number = 0;
-		cout << "Enter number of laptop (1 - " << laptopsCount << ")" << endl;
+		cout << "Enter Laptop ¹: ";
 		cin >> number;
 		system("cls");
 
@@ -430,31 +618,13 @@ void DeleteLaptop(Laptop *&laptop, int &laptopsCount) {
 
 }
 
-void LaptopList(Laptop *&laptop, int &laptopsCount) {
-	system("cls");
-	for (int i = 0; i < laptopsCount; i++)
-	{
-		cout << "*************************************************************" << endl;
-		cout << "Laptop N" << i + 1 << " :" << endl;
-		laptop[i].ShowLaptopInfo();
-		cout << "*************************************************************" << endl;
-	}
-	system("pause");
-}
-
 void ChangeLaptopPrice(Laptop *&laptop, int &laptopsCount) {
 	system("cls");
 	unsigned int laptopNumber = 0;
 
-	for (int i = 0; i < laptopsCount; i++)
-	{
-		cout << "*************************************************************" << endl;
-		cout << "Laptop N" << i + 1 << " :" << endl;
-		laptop[i].ShowLaptopInfo();
-		cout << "*************************************************************" << endl;
-	}
+	LaptopList(laptop, laptopsCount);
 	
-	cout << "Enter Laptop number: ";
+	cout << "Enter Laptop : ¹";
 	cin >> laptopNumber;
 	system("cls");
 	cout << "Enter new price: ";
@@ -466,7 +636,7 @@ void ChangeLaptopPrice(Laptop *&laptop, int &laptopsCount) {
 
 void SearchLaptop(Laptop *&laptop, int &laptopsCount) {
 	system("cls");
-
+	int tmp = 0;
 	string searchName;
 
 	cout << "Enter Laptop name: ";
@@ -476,16 +646,151 @@ void SearchLaptop(Laptop *&laptop, int &laptopsCount) {
 	{
 		if (laptop[i].laptopName == searchName) {
 			laptop[i].ShowLaptopInfo();
+			tmp++;
 		}
+	}
+	if (tmp == 0) {
+		cout << "Didn't find anything" << endl;
 	}
 
 	system("pause");
+}
+
+void LaptopWriteFile(Laptop *&laptop, int &laptopsCount) {
+
+	string path = "Laptop.txt";
+	ofstream writeFile;
+	writeFile.open(path);
+
+	if (!writeFile.is_open()) {
+		cout << "Can't open file!" << endl;
+	}
+	else
+	{
+		writeFile << laptopsCount << endl;
+		for (int i = 0; i < laptopsCount; i++) {
+			writeFile << laptop[i].laptopName << endl;
+			writeFile << laptop[i].devCountry << endl;
+			writeFile << laptop[i].LaptopProcessor.name << endl;
+			writeFile << laptop[i].LaptopProcessor.coreCount << endl;
+			writeFile << laptop[i].LaptopProcessor.freq1 << endl;
+			writeFile << laptop[i].LaptopProcessor.freq2 << endl;
+			writeFile << laptop[i].LaptopProcessor.generation << endl;
+			writeFile << laptop[i].LaptopRAM.type << endl;
+			writeFile << laptop[i].LaptopRAM.freq << endl;
+			writeFile << laptop[i].LaptopRAM.memory << endl;
+			writeFile << laptop[i].LaptopVideoCard.name << endl;
+			writeFile << laptop[i].LaptopVideoCard.memory << endl;
+			writeFile << laptop[i].LaptopDiskDrive.type << endl;
+			writeFile << laptop[i].LaptopDiskDrive.memory << endl;
+			writeFile << laptop[i].LaptopDisplay.diagonal << endl;
+			writeFile << laptop[i].LaptopDisplay.refreshRate << endl;
+			writeFile << laptop[i].weight << endl;
+			writeFile << laptop[i].Size.width << endl;
+			writeFile << laptop[i].Size.height << endl;
+			writeFile << laptop[i].Size.length << endl;
+			writeFile << laptop[i].batteryPower << endl;
+			writeFile << laptop[i].safeGuard << endl;
+			writeFile << laptop[i].price << endl;
+			writeFile << laptop[i].count << endl;
+		}
+
+	}
+
+	writeFile.close();
+}
+
+void LaptopReadFile(Laptop *&laptop, int &laptopsCount) {
+
+	int size = 0;
+	char temp[255];
+	string path = "Laptop.txt";
+	ifstream readFile;
+
+	readFile.open(path);
+	if (!readFile.is_open()) {
+		cout << "Can't open file!" << endl;
+	}
+	else {
+		readFile.getline(temp, 255);
+		size = atoi(temp);
+		Laptop *newLaptop = new Laptop[size];
+		for (int i = 0; i < size; i++)
+		{
+			readFile.getline(temp, 255);
+			newLaptop[i].laptopName = temp;
+			readFile.getline(temp, 255);
+			newLaptop[i].devCountry = temp;
+			readFile.getline(temp, 255);
+			newLaptop[i].LaptopProcessor.name = temp;
+			readFile.getline(temp, 255);
+			newLaptop[i].LaptopProcessor.coreCount = atoi(temp);
+			readFile.getline(temp, 255);
+			newLaptop[i].LaptopProcessor.freq1 = atof(temp);
+			readFile.getline(temp, 255);
+			newLaptop[i].LaptopProcessor.freq2 = atof(temp);
+			readFile.getline(temp, 255);
+			newLaptop[i].LaptopProcessor.generation = atoi(temp);
+			readFile.getline(temp, 255);
+			newLaptop[i].LaptopRAM.type = temp;
+			readFile.getline(temp, 255);
+			newLaptop[i].LaptopRAM.freq = atoi(temp);
+			readFile.getline(temp, 255);
+			newLaptop[i].LaptopRAM.memory = atoi(temp);
+			readFile.getline(temp, 255);
+			newLaptop[i].LaptopVideoCard.name = temp;
+			readFile.getline(temp, 255);
+			newLaptop[i].LaptopVideoCard.memory = atoi(temp);
+			readFile.getline(temp, 255);
+			newLaptop[i].LaptopDiskDrive.type = temp;
+			readFile.getline(temp, 255);
+			newLaptop[i].LaptopDiskDrive.memory = atoi(temp);
+			readFile.getline(temp, 255);
+			newLaptop[i].LaptopDisplay.diagonal = atof(temp);
+			readFile.getline(temp, 255);
+			newLaptop[i].LaptopDisplay.refreshRate = atoi(temp);
+			readFile.getline(temp, 255);
+			newLaptop[i].weight = atoi(temp);
+			readFile.getline(temp, 255);
+			newLaptop[i].Size.width = atoi(temp);
+			readFile.getline(temp, 255);
+			newLaptop[i].Size.height = atoi(temp);
+			readFile.getline(temp, 255);
+			newLaptop[i].Size.length = atoi(temp);
+			readFile.getline(temp, 255);
+			newLaptop[i].batteryPower = atoi(temp);
+			readFile.getline(temp, 255);
+			newLaptop[i].safeGuard = atoi(temp);
+			readFile.getline(temp, 255);
+			newLaptop[i].price = atoi(temp);
+			readFile.getline(temp, 255);
+			newLaptop[i].count = atoi(temp);
+
+		}
+
+		laptopsCount += size;
+
+		laptop = newLaptop;
+	}
+	readFile.close();
+
 }
 
 
 
 
 
+
+void MobileList(Mobile *&mobile, int &mobilesCount) {
+	for (int i = 0; i < mobilesCount; i++)
+	{
+		cout << "*************************************************************" << endl;
+		cout << "Mobile N" << i + 1 << " :" << endl;
+		mobile[i].ShowMobileInfo();
+		cout << "*************************************************************" << endl;
+	}
+
+}
 
 void AddMobile(Mobile *&mobile, int &mobilesCount) {
 	system("cls");
@@ -497,10 +802,11 @@ void AddMobile(Mobile *&mobile, int &mobilesCount) {
 
 	for (int i = 0; i < mobilesCount + count; i++) {
 		if (i >= mobilesCount) {
-			cout << "Mobile N" << i + 1 << " :" << endl;
+			cout << "Mobile ¹" << i + 1 << " :" << endl;
 			newMobile[i].CreateMobile();
-			system("cls");
 			cout << "Added" << endl;
+			system("pause");
+			system("cls");
 		}
 		else
 		{
@@ -513,7 +819,7 @@ void AddMobile(Mobile *&mobile, int &mobilesCount) {
 
 	delete[] mobile;
 	mobile = newMobile;
-	system("pause");
+	
 
 }
 
@@ -521,10 +827,10 @@ void DeleteMobile(Mobile *&mobile, int &mobilesCount) {
 	system("cls");
 
 	if (mobilesCount == 1) {
-		Mobile *newMobile = new Mobile[mobilesCount - 1];
+
 		mobilesCount--;
 		delete[] mobile;
-		mobile = newMobile;
+		mobile = nullptr;
 		cout << "Deleted" << endl;
 		system("pause");
 
@@ -535,9 +841,10 @@ void DeleteMobile(Mobile *&mobile, int &mobilesCount) {
 	}
 	else
 	{
+		MobileList(mobile, mobilesCount);
 		Mobile *newMobile = new Mobile[mobilesCount - 1];
 		int number = 0;
-		cout << "Enter number of Mobiletelephone (1 - " << mobilesCount << ")" << endl;
+		cout << "Enter Mobile ¹: ";
 		cin >> number;
 		system("cls");
 
@@ -570,29 +877,13 @@ void DeleteMobile(Mobile *&mobile, int &mobilesCount) {
 
 }
 
-void MobileList(Mobile *&mobile, int &mobilesCount) {
-	system("cls");
-	for (int i = 0; i < mobilesCount; i++)
-	{
-		cout << "*************************************************************" << endl;
-		cout << "Mobile N" << i + 1 << " :" << endl;
-		mobile[i].ShowMobileInfo();
-		cout << "*************************************************************" << endl;
-	}
-	system("pause");
-}
-
 void ChangeMobilePrice(Mobile *&mobile, int &mobilesCount) {
 	system("cls");
 	unsigned int mobileNumber = 0;
-	for (int i = 0; i < mobilesCount; i++)
-	{
-		cout << "*************************************************************" << endl;
-		cout << "Mobile N" << i + 1 << " :" << endl;
-		mobile[i].ShowMobileInfo();
-		cout << "*************************************************************" << endl;
-	}
-	cout << "Enter Mobile number: ";
+	
+	MobileList(mobile, mobilesCount);
+
+	cout << "Enter Mobile ¹: ";
 	cin >> mobileNumber;
 	system("cls");
 	cout << "Enter new price: ";
@@ -605,59 +896,124 @@ void ChangeMobilePrice(Mobile *&mobile, int &mobilesCount) {
 void SearchMobile(Mobile *&mobile, int &mobilesCount) {
 	system("cls");
 
+	int tmp = 0;
 	string searchName;
 
-	cout << "Enter Laptop name: ";
+	cout << "Enter Mobile name: ";
 	cin >> searchName;
 
 	for (int i = 0; i < mobilesCount; i++)
 	{
 		if (mobile[i].mobileName == searchName) {
 			mobile[i].ShowMobileInfo();
+			tmp++;
 		}
 	}
+
+	if (tmp == 0) {
+		cout << "Didn't find anything" << endl;
+	}
+
 	system("pause");
+
+}
+
+void MobileWriteFile(Mobile *&mobile, int &mobilesCount) {
+
+	string path = "Mobile.txt";
+	ofstream writeFile;
+	writeFile.open(path);
+
+	if (!writeFile.is_open()) {
+		cout << "Can't open file!" << endl;
+	}
+	else
+	{
+		writeFile << mobilesCount << endl;
+		for (int i = 0; i < mobilesCount; i++) {
+			writeFile << mobile[i].mobileName << endl;
+			writeFile << mobile[i].devCountry << endl;
+			writeFile << mobile[i].displayDiagonal << endl;
+			writeFile << mobile[i].mainCamera << endl;
+			writeFile << mobile[i].frontCamera << endl;
+			writeFile << mobile[i].RAMmemory << endl;
+			writeFile << mobile[i].memory << endl;
+			writeFile << mobile[i].batteryCapacity << endl;
+			writeFile << mobile[i].weight << endl;
+			writeFile << mobile[i].safeGuard << endl;
+			writeFile << mobile[i].price << endl;
+			writeFile << mobile[i].count << endl;
+		}
+
+	}
+
+	writeFile.close();
+}
+
+void MobileReadFile(Mobile *&mobile, int &mobilesCount) {
+
+	int size = 0;
+	char temp[255];
+	string path = "Mobile.txt";
+	ifstream readFile;
+
+
+	readFile.open(path);
+	if (!readFile.is_open()) {
+		cout << "Can't open file!" << endl;
+	}
+	else {
+		readFile.getline(temp, 255);
+		size = atoi(temp);
+		Mobile *newMobile = new Mobile[size];
+		for (int i = 0; i < size; i++)
+		{
+			readFile.getline(temp, 255);
+			newMobile[i].mobileName = temp;
+			readFile.getline(temp, 255);
+			newMobile[i].devCountry = temp;
+			readFile.getline(temp, 255);
+			newMobile[i].displayDiagonal = atof(temp);
+			readFile.getline(temp, 255);
+			newMobile[i].mainCamera = atoi(temp);
+			readFile.getline(temp, 255);
+			newMobile[i].frontCamera = atoi(temp);
+			readFile.getline(temp, 255);
+			newMobile[i].RAMmemory = atoi(temp);
+			readFile.getline(temp, 255);
+			newMobile[i].memory = atoi(temp);
+			readFile.getline(temp, 255);
+			newMobile[i].batteryCapacity = atoi(temp);
+			readFile.getline(temp, 255);
+			newMobile[i].weight = atoi(temp);
+			readFile.getline(temp, 255);
+			newMobile[i].safeGuard = atoi(temp);
+			readFile.getline(temp, 255);
+			newMobile[i].price = atoi(temp);
+			readFile.getline(temp, 255);
+			newMobile[i].count = atoi(temp);
+
+		}
+
+		mobilesCount += size;
+
+		mobile = newMobile;
+	}
+	readFile.close();
 
 }
 
 
 
 
-
 void ShowAllList(PC *&computer, int &computersCount,Laptop *&laptop, int &laptopsCount, Monitor *&monitor, int &monitorsCount, Mobile *&mobile, int &mobilesCount) {
 	system("cls");
-	for (int i = 0; i < computersCount; i++)
-	{
-		cout << "*************************************************************" << endl;
-		cout << "PC N" << i + 1 << " :" << endl;
-		computer[i].ShowComputerInfo();
-		cout << "*************************************************************" << endl;
-	}
-	for (int i = 0; i < laptopsCount; i++)
-	{
-		cout << "*************************************************************" << endl;
-		cout << "Laptop N" << i + 1 << " :" << endl;
-		laptop[i].ShowLaptopInfo();
-		cout << "*************************************************************" << endl;
-	}
-	for (int i = 0; i < monitorsCount; i++)
-	{
-		cout << "*************************************************************" << endl;
-		cout << "Monitor N" << i + 1 << " :" << endl;
-		monitor[i].ShowMonitorInfo();
-		cout << "*************************************************************" << endl;
-	}
-
-	for (int i = 0; i < mobilesCount; i++)
-	{
-		cout << "*************************************************************" << endl;
-		cout << "Mobile N" << i + 1 << " :" << endl;
-		mobile[i].ShowMobileInfo();
-		cout << "*************************************************************" << endl;
-	}
 	
-
-	system("pause");
+		ComputerList(computer, computersCount);
+		MonitorList(monitor, monitorsCount);
+		LaptopList(laptop, laptopsCount);
+		MobileList(mobile, mobilesCount);
+	
 }
 
 void SortByPrice(PC *&computer, int &computersCount, Laptop *&laptop, int &laptopsCount, Monitor *&monitor, int &monitorsCount, Mobile *&mobile, int &mobilesCount) {
@@ -829,83 +1185,6 @@ void FilterByCount(PC *&computer, int &computersCount, Laptop *&laptop, int &lap
 
 
 
-void ReadFile(PC *&computer, int &computersCount) {
-	int size = 0;
-	
-	char temp[255];
-	string path = "PC.txt";
-	ifstream readFile;
 
-	string tempHouseNumber;
-
-	readFile.open(path);
-	if (!readFile.is_open()) {
-		cout << "Can't open file!" << endl;
-	}
-	else {
-		readFile.getline(temp, 255);  
-		size = atoi(temp);
-		PC *newComputer = new PC[size];
-		for (int i = 0; i < size; i++)
-		{
-			readFile.getline(temp, 255);
-			newComputer[i].computerName = temp;
-			readFile.getline(temp, 255);
-			newComputer[i].devCountry = temp;
-			readFile.getline(temp, 255);
-			newComputer[i].PCProcessor.name = temp;
-			readFile.getline(temp, 255);
-			newComputer[i].PCProcessor.coreCount = atoi(temp);
-			readFile.getline(temp, 255);
-			newComputer[i].PCProcessor.freq1 = atof(temp);
-			readFile.getline(temp, 255);
-			newComputer[i].PCProcessor.freq2 = atof(temp);
-			readFile.getline(temp, 255);
-			newComputer[i].PCProcessor.generation = atoi(temp);
-			readFile.getline(temp, 255);
-			newComputer[i].PCRAM.type = temp;
-			readFile.getline(temp, 255);
-			newComputer[i].PCRAM.freq = atoi(temp);
-			readFile.getline(temp, 255);
-			newComputer[i].PCRAM.memory = atoi(temp);
-			readFile.getline(temp, 255);
-			newComputer[i].PCVideoCard.name = temp;
-			readFile.getline(temp, 255);
-			newComputer[i].PCVideoCard.memory = atoi(temp);
-			readFile.getline(temp, 255);
-			newComputer[i].PCDiskDrive.type = temp;
-			readFile.getline(temp, 255);
-			newComputer[i].PCDiskDrive.memory = atoi(temp);
-			readFile.getline(temp, 255);
-			newComputer[i].weight = atoi(temp);
-			readFile.getline(temp, 255);
-			newComputer[i].Size.width = atoi(temp);
-			readFile.getline(temp, 255);
-			newComputer[i].Size.height = atoi(temp);
-			readFile.getline(temp, 255);
-			newComputer[i].Size.length = atoi(temp);
-			readFile.getline(temp, 255);
-			newComputer[i].powerSupply = atoi(temp);
-			readFile.getline(temp, 255);
-			newComputer[i].safeGuard = atoi(temp);
-			readFile.getline(temp, 255);
-			newComputer[i].price = atoi(temp);
-			readFile.getline(temp, 255);
-			newComputer[i].count = atoi(temp);
-
-		}
-
-		computersCount += size;
-
-		
-		/*delete computer;*/
-		computer = newComputer;
-	}
-	readFile.close();
-
-
-	
-
-}
 
 

@@ -4,7 +4,7 @@
 
 void PC::CreateComputer() {
 
-	cout << "Enter name (ex: Samsung, LG) : ";
+	cout << "Enter name (ex: Asus, HP) : ";
 	cin >> computerName;
 	cout << "Enter country : ";
 	cin >> devCountry;
@@ -41,7 +41,7 @@ void PC::CreateComputer() {
 	cin >> Size.height;
 	cout << "Length (mm): ";
 	cin >> Size.length;
-	cout << "Enter power supply (kW): ";
+	cout << "Enter power supply (W): ";
 	cin >> powerSupply;
 	cout << "Enter safeguard (month): ";
 	cin >> safeGuard;

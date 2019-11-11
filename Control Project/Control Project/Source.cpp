@@ -18,7 +18,10 @@ void Menu() {
 	bool exit = false;
 	short mainChoice = 0, addChoice = 0, delChoice = 0, searchChoice = 0, filterChoice = 0, changeChoice = 0, infoChoice = 0;
 
-	ReadFile(CTDepartment.pc, CTDepartment.pcCount);
+	PCReadFile(CTDepartment.pc, CTDepartment.pcCount);
+	MonitorReadFile(CTDepartment.monitor, CTDepartment.monitorsCount);
+	LaptopReadFile(CTDepartment.laptop, CTDepartment.laptopsCount);
+	MobileReadFile(CTDepartment.mobile, CTDepartment.mobilesCount);
 
 
 	Start();
@@ -145,19 +148,29 @@ void Menu() {
 			switch (infoChoice)
 			{
 			case 1:
+				system("cls");
 				ComputerList(CTDepartment.pc, CTDepartment.pcCount);
+				system("pause");
 				break;
 			case 2:
+				system("cls");
 				LaptopList(CTDepartment.laptop, CTDepartment.laptopsCount);
+				system("pause");
 				break;
 			case 3:
+				system("cls");
 				MonitorList(CTDepartment.monitor, CTDepartment.monitorsCount);
+				system("pause");
 				break;
 			case 4:
+				system("cls");
 				MobileList(CTDepartment.mobile, CTDepartment.mobilesCount);
+				system("pause");
 				break;
 			case 5:
+				system("cls");
 				ShowAllList(CTDepartment.pc, CTDepartment.pcCount, CTDepartment.laptop, CTDepartment.laptopsCount, CTDepartment.monitor, CTDepartment.monitorsCount, CTDepartment.mobile, CTDepartment.mobilesCount);
+				system("pause");
 				break;
 			default:
 				break;
@@ -165,6 +178,10 @@ void Menu() {
 
 			break;
 		case 0:
+			PCWriteFile(CTDepartment.pc, CTDepartment.pcCount);
+			MonitorWriteFile(CTDepartment.monitor, CTDepartment.monitorsCount);
+			LaptopWriteFile(CTDepartment.laptop, CTDepartment.laptopsCount);
+			MobileWriteFile(CTDepartment.mobile, CTDepartment.mobilesCount);
 			system("cls");
 			exit = true;
 			break;
@@ -181,6 +198,7 @@ void Menu() {
 
 int main() {
 
+	/*setlocale(LC_ALL, "RU");*/
 	Menu();
 	
 	system("pause");

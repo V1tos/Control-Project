@@ -5,7 +5,7 @@
 
 void Mobile::CreateMobile() {
 
-	cout << "Enter name (ex: Samsung, LG): ";
+	cout << "Enter name (ex: Samsung, Apple): ";
 	cin >> mobileName;
 	cout << "Enter country: ";
 	cin >> devCountry;
