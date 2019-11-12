@@ -11,15 +11,15 @@ struct Mobile
 	string devCountry;
 	string OS;
 	string colour;
-	int mainCamera;
-	int frontCamera;
-	int batteryCapacity;
-	int weight;
-	int safeGuard;
-	double displayDiagonal;
-	int RAMmemory;
-	int memory;
-	int price;
+	unsigned int mainCamera;
+	unsigned int frontCamera;
+	unsigned int batteryCapacity;
+	unsigned int weight;
+	unsigned int safeGuard;
+	long double displayDiagonal;
+	unsigned int RAMmemory;
+	unsigned int memory;
+	unsigned int price;
 	unsigned int count;
 
 

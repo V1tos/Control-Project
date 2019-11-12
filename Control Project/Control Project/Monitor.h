@@ -7,11 +7,11 @@ struct Monitor {
 	string devCountry;
 	string matrixType;
 	string colour;
-	int weight;
-	int coloursCount;
-	int safeGuard;
+	unsigned int weight;
+	unsigned int coloursCount;
+	unsigned int safeGuard;
 	unsigned int price;
-	int count;
+	unsigned int count;
 	Display monitorsDisplay;
 	
 

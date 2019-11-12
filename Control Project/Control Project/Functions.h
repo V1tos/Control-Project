@@ -4,6 +4,7 @@
 #include <fstream>
 #include <iomanip>
 #include <stdlib.h>
+
 using namespace std;
 
 
@@ -94,68 +95,71 @@ void DeleteComputer(PC *&computer, int &computersCount) {
 		delete[] computer;
 		computer = nullptr;
 		cout << "Deleted" << endl;
-		system("pause");
 
 	}
 	else if (computersCount == 0) {
 		cout << "There aren't computers" << endl;
-		system("pause");
 	}
 	else
 	{
 		ComputerList(computer, computersCount);
-		PC *newComputer = new PC[computersCount - 1];
 		int number = 0;
 		cout << "Enter PC N: ";
 		cin >> number;
-		system("cls");
+
+		if (number <= computersCount) {
+			system("cls");
+			PC *newComputer = new PC[computersCount - 1];
 
 
-		for (int i = 0; i < computersCount; i++) {
-			if (i >= number - 1 && i < computersCount - 1) {
-				swap(computer[i], computer[i + 1]);
+			for (int i = 0; i < computersCount; i++) {
+				if (i >= number - 1 && i < computersCount - 1) {
+					swap(computer[i], computer[i + 1]);
+				}
+
 			}
 
+			for (int i = 0; i < computersCount - 1; i++) {
+				CopyData(computer[i], newComputer[i]);
+			}
+
+
+			cout << "Deleted" << endl;
+
+			computersCount--;
+
+
+			delete[] computer;
+			computer = newComputer;
+			
 		}
-
-		for (int i = 0; i < computersCount - 1; i++) {
-			CopyData(computer[i], newComputer[i]);
+		else {
+			cout << "Wrong choice!" << endl;
 		}
-
-
-		cout << "Deleted" << endl;
-
-		computersCount--;
-
-
-		delete[] computer;
-		computer = newComputer;
-		system("pause");
-
 
 	}
 
-
+	system("pause");
 
 }
 
 void ChangeComputerPrice(PC *&computer, int &computersCount) {
 	system("cls");
 	unsigned int pcNumber = 0;
-	//for (int i = 0; i < computersCount; i++)
-	//{
-	//	cout << "*************************************************************" << endl;
-	//	cout << "PC N" << i + 1 << " :" << endl;
-	//	computer[i].ShowComputerInfo();
-	//	cout << "*************************************************************" << endl;
-	//}
 	ComputerList(computer, computersCount);
 	cout << "Enter PC N: ";
 	cin >> pcNumber;
-	system("cls");
-	cout << "Enter new price: ";
-	cin >> computer[pcNumber - 1].price;
-	cout << "Changed price" << endl;
+	if (pcNumber <= computersCount) {
+		system("cls");
+		cout << "Enter new price: ";
+		cin >> computer[pcNumber - 1].price;
+		cout << "Changed price" << endl;
+
+	}
+	else {
+		system("cls");
+		cout << "Wrong choice!" << endl;
+	}
 	system("pause");
 
 }
@@ -177,7 +181,7 @@ void SearchComputer(PC *&computer, int &computersCount) {
 	}
 
 	if (tmp == 0) {
-		cout << "Didn't find anything" << endl;
+		cout << "Didn't find anything!" << endl;
 	}
 
 	system("pause");
@@ -353,48 +357,48 @@ void DeleteMonitor(Monitor *&monitor, int &monitorsCount) {
 		delete[] monitor;
 		monitor = nullptr;
 		cout << "Deleted" << endl;
-		system("pause");
-
 	}
 	else if (monitorsCount == 0) {
 		cout << "There aren't monitors" << endl;
-		system("pause");
 	}
 	else
 	{
 		MonitorList(monitor, monitorsCount);
-		Monitor *newMonitor = new Monitor[monitorsCount - 1];
 		int number = 0;
 		cout << "Enter Monitor N: ";
 		cin >> number;
-		system("cls");
+		if (number <= monitorsCount) {
+			system("cls");
+			Monitor *newMonitor = new Monitor[monitorsCount - 1];
 
+			for (int i = 0; i < monitorsCount; i++) {
+				if (i >= number - 1 && i < monitorsCount - 1) {
+					swap(monitor[i], monitor[i + 1]);
+				}
 
-		for (int i = 0; i < monitorsCount; i++) {
-			if (i >= number - 1 && i < monitorsCount - 1) {
-				swap(monitor[i], monitor[i + 1]);
 			}
 
+			for (int i = 0; i < monitorsCount - 1; i++) {
+				CopyData(monitor[i], newMonitor[i]);
+			}
+
+
+			cout << "Deleted" << endl;
+
+			monitorsCount--;
+
+
+			delete[] monitor;
+			monitor = newMonitor;
+			
 		}
-
-		for (int i = 0; i < monitorsCount - 1; i++) {
-			CopyData(monitor[i], newMonitor[i]);
+		else {
+			cout << "Wrong choice!" << endl;
 		}
-
-
-		cout << "Deleted" << endl;
-
-		monitorsCount--;
-
-
-		delete[] monitor;
-		monitor = newMonitor;
-		system("pause");
-
 
 	}
 
-
+	system("pause");
 
 }
 
@@ -405,10 +409,17 @@ void ChangeMonitorPrice(Monitor *&monitor, int &monitorsCount) {
 	MonitorList(monitor, monitorsCount);
 	cout << "Enter Monitor N: ";
 	cin >> monitorNumber;
-	system("cls");
-	cout << "Enter new price: ";
-	cin >> monitor[monitorNumber - 1].price;
-	cout << "Changed price" << endl;
+	if (monitorNumber <= monitorsCount) {
+		system("cls");
+		cout << "Enter new price: ";
+		cin >> monitor[monitorNumber-1].price;
+		cout << "Changed price" << endl;
+
+	}
+	else {
+		cout << "Wrong choice!" << endl;
+	}
+
 	system("pause");
 
 }
@@ -430,7 +441,7 @@ void SearchMonitor(Monitor *&monitor, int &monitorsCount) {
 	}
 
 	if (tmp == 0) {
-		cout << "Didn't find anything" << endl;
+		cout << "Didn't find anything!" << endl;
 	}
 
 	system("pause");
@@ -573,48 +584,49 @@ void DeleteLaptop(Laptop *&laptop, int &laptopsCount) {
 		delete[] laptop;
 		laptop = nullptr;
 		cout << "Deleted" << endl;
-		system("pause");
 
 	}
 	else if (laptopsCount == 0) {
 		cout << "There aren't laptops" << endl;
-		system("pause");
 	}
 	else
 	{
 		LaptopList(laptop, laptopsCount);
-		Laptop *newLaptop = new Laptop[laptopsCount - 1];
 		int number = 0;
 		cout << "Enter Laptop N: ";
 		cin >> number;
-		system("cls");
 
+		if (number <= laptopsCount) {
+			system("cls");
+			Laptop *newLaptop = new Laptop[laptopsCount - 1];
 
-		for (int i = 0; i < laptopsCount; i++) {
-			if (i >= number - 1 && i < laptopsCount - 1) {
-				swap(laptop[i], laptop[i + 1]);
+			for (int i = 0; i < laptopsCount; i++) {
+				if (i >= number - 1 && i < laptopsCount - 1) {
+					swap(laptop[i], laptop[i + 1]);
+				}
+
 			}
 
+			for (int i = 0; i < laptopsCount - 1; i++) {
+				CopyData(laptop[i], newLaptop[i]);
+			}
+
+
+			cout << "Deleted" << endl;
+
+			laptopsCount--;
+
+			delete[] laptop;
+			laptop = newLaptop;
+			
 		}
-
-		for (int i = 0; i < laptopsCount - 1; i++) {
-			CopyData(laptop[i], newLaptop[i]);
+		else {
+			cout << "Wrong choice!" << endl;
 		}
-
-
-		cout << "Deleted" << endl;
-
-		laptopsCount--;
-
-
-		delete[] laptop;
-		laptop = newLaptop;
-		system("pause");
-
 
 	}
 
-
+	system("pause");
 
 }
 
@@ -626,10 +638,16 @@ void ChangeLaptopPrice(Laptop *&laptop, int &laptopsCount) {
 	
 	cout << "Enter Laptop N:";
 	cin >> laptopNumber;
-	system("cls");
-	cout << "Enter new price: ";
-	cin >> laptop[laptopNumber - 1].price;
-	cout << "Changed price" << endl;
+	if (laptopNumber <= laptopsCount) {
+		system("cls");
+		cout << "Enter new price: ";
+		cin >> laptop[laptopNumber - 1].price;
+		cout << "Changed price" << endl;
+
+	}
+	else {
+		cout << "Wrong choice!" << endl;
+	}
 	system("pause");
 
 }
@@ -650,7 +668,7 @@ void SearchLaptop(Laptop *&laptop, int &laptopsCount) {
 		}
 	}
 	if (tmp == 0) {
-		cout << "Didn't find anything" << endl;
+		cout << "Didn't find anything!" << endl;
 	}
 
 	system("pause");
@@ -832,48 +850,53 @@ void DeleteMobile(Mobile *&mobile, int &mobilesCount) {
 		delete[] mobile;
 		mobile = nullptr;
 		cout << "Deleted" << endl;
-		system("pause");
+		
 
 	}
 	else if (mobilesCount == 0) {
 		cout << "There aren't Mobiletelephones" << endl;
-		system("pause");
+		
 	}
 	else
 	{
 		MobileList(mobile, mobilesCount);
-		Mobile *newMobile = new Mobile[mobilesCount - 1];
 		int number = 0;
 		cout << "Enter Mobile N: ";
 		cin >> number;
-		system("cls");
+		if (number <= mobilesCount) {
+			system("cls");
+			Mobile *newMobile = new Mobile[mobilesCount - 1];
 
+			for (int i = 0; i < mobilesCount; i++) {
+				if (i >= number - 1 && i < mobilesCount - 1) {
+					swap(mobile[i], mobile[i + 1]);
+				}
 
-		for (int i = 0; i < mobilesCount; i++) {
-			if (i >= number - 1 && i < mobilesCount - 1) {
-				swap(mobile[i], mobile[i + 1]);
 			}
 
+			for (int i = 0; i < mobilesCount - 1; i++) {
+				CopyData(mobile[i], newMobile[i]);
+			}
+
+
+			cout << "Deleted" << endl;
+
+			mobilesCount--;
+
+
+			delete[] mobile;
+			mobile = newMobile;
+			
+
 		}
-
-		for (int i = 0; i < mobilesCount - 1; i++) {
-			CopyData(mobile[i], newMobile[i]);
+		else {
+			cout << "Wrong choice!" << endl;
 		}
-
-
-		cout << "Deleted" << endl;
-
-		mobilesCount--;
-
-
-		delete[] mobile;
-		mobile = newMobile;
-		system("pause");
 
 
 	}
 
-
+	system("pause");
 
 }
 
@@ -885,10 +908,16 @@ void ChangeMobilePrice(Mobile *&mobile, int &mobilesCount) {
 
 	cout << "Enter Mobile N: ";
 	cin >> mobileNumber;
-	system("cls");
-	cout << "Enter new price: ";
-	cin >> mobile[mobileNumber - 1].price;
-	cout << "Changed price" << endl;
+	if (mobileNumber <= mobilesCount) {
+		system("cls");
+		cout << "Enter new price: ";
+		cin >> mobile[mobileNumber - 1].price;
+		cout << "Changed price" << endl;
+
+	}
+	else {
+		cout << "Wrong choice!" << endl;
+	}
 	system("pause");
 
 }
@@ -911,7 +940,7 @@ void SearchMobile(Mobile *&mobile, int &mobilesCount) {
 	}
 
 	if (tmp == 0) {
-		cout << "Didn't find anything" << endl;
+		cout << "Didn't find anything!" << endl;
 	}
 
 	system("pause");
@@ -1054,28 +1083,43 @@ void SortByPrice(PC *&computer, int &computersCount, Laptop *&laptop, int &lapto
 
 	for (int i = 0; i < size; i++)
 	{
-		cout << "Price - " << arr[i] << " UAH :" << endl;
-		for (int j = 0; j < size; j++) {
-			if (arr[i] == computer[j].price) {
-				cout << "PC:" << endl;
-				computer[j].ShowComputerInfo();
-				cout << "\n\n";
+		
+		if (arr[i] != arr[i + 1]) {
+			cout << "Price - " << arr[i] << " UAH:" << endl;
+
+			for (int j = 0; j < computersCount; j++) {
+				if (arr[i] == computer[j].price) {
+					cout << "PC:" << endl;
+					computer[j].ShowComputerInfo();
+					cout << "\n\n";
+				}
 			}
-			if (arr[i] == laptop[j].price) {
-				cout << "Laptop:" << endl;
-				laptop[j].ShowLaptopInfo();
-				cout << "\n\n";
+
+			for (int j = 0; j < laptopsCount; j++) {
+				if (arr[i] == laptop[j].price) {
+					cout << "PC:" << endl;
+					laptop[j].ShowLaptopInfo();
+					cout << "\n\n";
+				}
 			}
-			if (arr[i] == monitor[j].price) {
-				cout << "Monitor:" << endl;
-				monitor[j].ShowMonitorInfo();
-				cout << "\n\n";
+
+			for (int j = 0; j < monitorsCount; j++) {
+				if (arr[i] == monitor[j].price) {
+					cout << "PC:" << endl;
+					monitor[j].ShowMonitorInfo();
+					cout << "\n\n";
+				}
 			}
-			if (arr[i] == mobile[j].price) {
-				cout << "Mobilephone:" << endl;
-				mobile[j].ShowMobileInfo();
-				cout << "\n\n";
+
+			for (int j = 0; j < mobilesCount; j++) {
+				if (arr[i] == mobile[j].price) {
+					cout << "PC:" << endl;
+					mobile[j].ShowMobileInfo();
+					cout << "\n\n";
+				}
 			}
+
+
 		}
 	}
 
@@ -1084,58 +1128,60 @@ void SortByPrice(PC *&computer, int &computersCount, Laptop *&laptop, int &lapto
 
 void FilterByPrice(PC *&computer, int &computersCount, Laptop *&laptop, int &laptopsCount, Monitor *&monitor, int &monitorsCount, Mobile *&mobile, int &mobilesCount){
 	system("cls");
-	int limitPrice = 0;
-	int size = 0;
-	size = computersCount + laptopsCount + monitorsCount + mobilesCount;
-	int *arr = new int[size];
-	int laptopIterator = 0, monitorIterator = 0, mobileIterator = 0;
-	for (int i = 0; i < size; i++)
-	{
-		if (i < computersCount) {
-			arr[i] = computer[i].price;
-		}
-		else if (i >= computersCount && i < computersCount + laptopsCount) {
-			arr[i] = laptop[laptopIterator].price;
-			laptopIterator++;
-		}
-		else if (i >= computersCount + laptopsCount && i < computersCount + laptopsCount + monitorsCount) {
-			arr[i] = monitor[monitorIterator].price;
-			monitorIterator++;
-		}
-		else {
-			arr[i] = mobile[mobileIterator].price;
-			mobileIterator++;
-		}
+	int limitPrice = 0, tmp = 0;
 
-	}
+
 	cout << "Enter limited price: ";
 	cin >> limitPrice;
 	system("cls");
 	cout << "Limited price - " << limitPrice << " UAH :" << endl;
-	for (int i = 0; i < size; i++) {
-		
-		for (int j = 0; j < size; j++) {
-			if (arr[i] == computer[j].price&&arr[i] <= limitPrice) {
-				cout << "PC:" << endl;
-				computer[j].ShowComputerInfo();
-				cout << "\n\n";
-			}
-			if (arr[i] == laptop[j].price&&arr[i] <= limitPrice) {
-				cout << "Laptop:" << endl;
-				laptop[j].ShowLaptopInfo();
-				cout << "\n\n";
-			}
-			if (arr[i] == monitor[j].price&&arr[i] <= limitPrice) {
-				cout << "Monitor:" << endl;
-				monitor[j].ShowMonitorInfo();
-				cout << "\n\n";
-			}
-			if (arr[i] == mobile[j].price&&arr[i] <= limitPrice) {
-				cout << "Mobilephone:" << endl;
-				mobile[j].ShowMobileInfo();
-				cout << "\n\n";
-			}
+	for (int i = 0; i < computersCount; i++) {
+
+		if (computer[i].price <= limitPrice) {
+			cout << "PC:" << endl;
+			computer[i].ShowComputerInfo();
+			cout << "\n\n";
+			tmp++;
 		}
+
+	}
+
+	for (int i = 0; i < monitorsCount; i++) {
+
+		if (monitor[i].price <= limitPrice) {
+			cout << "Monitor:" << endl;
+			monitor[i].ShowMonitorInfo();
+			cout << "\n\n";
+			tmp++;
+		}
+
+	}
+
+	for (int i = 0; i < laptopsCount; i++) {
+
+		if (laptop[i].price <= limitPrice) {
+			cout << "Laptop:" << endl;
+			laptop[i].ShowLaptopInfo();
+			cout << "\n\n";
+			tmp++;
+		}
+
+	}
+
+
+	for (int i = 0; i < mobilesCount; i++) {
+
+		if (mobile[i].price <= limitPrice) {
+			cout << "Mobilephone:" << endl;
+			mobile[i].ShowMobileInfo();
+			cout << "\n\n";
+			tmp++;
+		}
+
+	}
+
+	if (tmp == 0) {
+		cout << "Didn't find anything!" << endl;
 	}
 
 	system("pause");
@@ -1143,58 +1189,60 @@ void FilterByPrice(PC *&computer, int &computersCount, Laptop *&laptop, int &lap
 
 void FilterByCount(PC *&computer, int &computersCount, Laptop *&laptop, int &laptopsCount, Monitor *&monitor, int &monitorsCount, Mobile *&mobile, int &mobilesCount) {
 	system("cls");
-	int limitCount = 0;
-	int size = 0;
-	size = computersCount + laptopsCount + monitorsCount + mobilesCount;
-	int *arr = new int[size];
-	int laptopIterator = 0, monitorIterator = 0, mobileIterator = 0;
-	for (int i = 0; i < size; i++)
-	{
-		if (i < computersCount) {
-			arr[i] = computer[i].count;
-		}
-		else if (i >= computersCount && i < computersCount + laptopsCount) {
-			arr[i] = laptop[laptopIterator].count;
-			laptopIterator++;
-		}
-		else if (i >= computersCount + laptopsCount && i < computersCount + laptopsCount + monitorsCount) {
-			arr[i] = monitor[monitorIterator].count;
-			monitorIterator++;
-		}
-		else {
-			arr[i] = mobile[mobileIterator].count;
-			mobileIterator++;
-		}
-
-	}
+	int limitCount = 0, tmp = 0;
+	
 	cout << "Enter limited count: ";
 	cin >> limitCount;
 	system("cls");
 	cout << "Limited count - " << limitCount << " :" << endl;
-	for (int i = 0; i < size; i++) {
 
-		for (int j = 0; j < size; j++) {
-			if (arr[i] == computer[j].count&&arr[i] <= limitCount) {
-				cout << "PC:" << endl;
-				computer[j].ShowComputerInfo();
-				cout << "\n\n";
-			}
-			if (arr[i] == laptop[j].count&&arr[i] <= limitCount) {
-				cout << "Laptop:" << endl;
-				laptop[j].ShowLaptopInfo();
-				cout << "\n\n";
-			}
-			if (arr[i] == monitor[j].count&&arr[i] <= limitCount) {
-				cout << "Monitor:" << endl;
-				monitor[j].ShowMonitorInfo();
-				cout << "\n\n";
-			}
-			if (arr[i] == mobile[j].count&&arr[i] <= limitCount) {
-				cout << "Mobilephone:" << endl;
-				mobile[j].ShowMobileInfo();
-				cout << "\n\n";
-			}
+	for (int i = 0; i < computersCount; i++) {
+
+		if (computer[i].count <= limitCount) {
+			cout << "PC:" << endl;
+			computer[i].ShowComputerInfo();
+			cout << "\n\n";
+			tmp++;
 		}
+
+	}
+
+	for (int i = 0; i < monitorsCount; i++) {
+
+		if (monitor[i].count <= limitCount) {
+			cout << "Monitor:" << endl;
+			monitor[i].ShowMonitorInfo();
+			cout << "\n\n";
+			tmp++;
+		}
+
+	}
+
+	for (int i = 0; i < laptopsCount; i++) {
+
+		if (laptop[i].count <= limitCount) {
+			cout << "Laptop:" << endl;
+			laptop[i].ShowLaptopInfo();
+			cout << "\n\n";
+			tmp++;
+		}
+
+	}
+
+	
+	for (int i = 0; i < mobilesCount; i++) {
+
+		if (mobile[i].count <= limitCount) {
+			cout << "Mobilephone:" << endl;
+			mobile[i].ShowMobileInfo();
+			cout << "\n\n";
+			tmp++;
+		}
+
+	}
+
+	if (tmp == 0) {
+		cout << "Didn't find anything!" << endl;
 	}
 
 	system("pause");

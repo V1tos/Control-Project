@@ -6,8 +6,8 @@ using namespace std;
 
 struct Display
 {
-	double diagonal;
-	int refreshRate;
+	long double diagonal;
+	unsigned int refreshRate;
 
 };
 

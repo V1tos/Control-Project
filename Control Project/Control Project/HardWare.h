@@ -7,29 +7,29 @@ using namespace std;
 struct Processor 
 { 
 	string name; 
-	int coreCount;
-	double freq1; 
-	double freq2; 
-	int generation; 
+	unsigned int coreCount;
+	long double freq1; 
+	long double freq2; 
+	unsigned int generation;
 };
 
 struct RAM
 {
 	string type;
-	int freq;
-	int memory;
+	unsigned int freq;
+	unsigned int memory;
 };
 
 struct Videocard
 {
 	string name;
-	int memory;
+	unsigned int memory;
 };
 
 struct DiskDrive
 {
 	string type;
-	int memory;
+	unsigned int memory;
 };
 
 

@@ -6,17 +6,17 @@ struct PC
 {
 	string computerName;
 	string devCountry;
-	int powerSupply;
-	int weight;
-	int safeGuard;
+	unsigned int powerSupply;
+	unsigned int weight;
+	unsigned int safeGuard;
 	Processor PCProcessor;
 	RAM PCRAM;
 	Videocard PCVideoCard;
 	DiskDrive PCDiskDrive;
-	int price;
+	unsigned int price;
 	unsigned int count;
 
-	struct { int width; int height; int length; }Size;
+	struct { unsigned int width; unsigned int height; unsigned int length; }Size;
 
 	void CreateComputer();
 	void ShowComputerInfo();

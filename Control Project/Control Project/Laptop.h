@@ -6,18 +6,18 @@ struct Laptop
 {
 	string laptopName;
 	string devCountry;
-	int batteryPower;
-	int weight;
-	int safeGuard;
+	unsigned int batteryPower;
+	unsigned int weight;
+	unsigned int safeGuard;
 	Processor LaptopProcessor;
 	RAM LaptopRAM;
 	Videocard LaptopVideoCard;
 	DiskDrive LaptopDiskDrive;
 	Display LaptopDisplay;
 	unsigned int price;
-	int count;
+	unsigned int count;
 
-	struct { int width; int height; int length; }Size;
+	struct { unsigned int width; unsigned int height; unsigned int length; }Size;
 
 	void CreateLaptop();
 	void ShowLaptopInfo();
