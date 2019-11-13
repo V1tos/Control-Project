@@ -3,42 +3,42 @@
 
 void Monitor::CreateMonitor() {
 
-	cout << "Enter name (ex: Samsung, LG): ";
+	cout << "\t\t\t\t\t\t\t\t\t\tEnter name (ex: Samsung, LG): ";
 	cin >> monitorName;
-	cout << "Enter country: ";
+	cout << "\t\t\t\t\t\t\t\t\t\tEnter country: ";
 	cin >> devCountry;
-	cout << "Enter matrix type (ex: MVA, IPS): ";
+	cout << "\t\t\t\t\t\t\t\t\t\tEnter matrix type (ex: MVA, IPS): ";
 	cin >> matrixType;
-	cout << "Enter colour: ";
+	cout << "\t\t\t\t\t\t\t\t\t\tEnter colour: ";
 	cin >> colour;
-	cout << "Enter display's diagonal (in): ";
+	cout << "\t\t\t\t\t\t\t\t\t\tEnter display's diagonal (in): ";
 	cin >> monitorsDisplay.diagonal;
-	cout << "Enter refresh rate (GHz): ";
+	cout << "\t\t\t\t\t\t\t\t\t\tEnter refresh rate (GHz): ";
 	cin >> monitorsDisplay.refreshRate;
-	cout << "Enter weight (kg): ";
+	cout << "\t\t\t\t\t\t\t\t\t\tEnter weight (kg): ";
 	cin >> weight;
-	cout << "Enter colours count: ";
+	cout << "\t\t\t\t\t\t\t\t\t\tEnter colours count: ";
 	cin >> coloursCount;
-	cout << "Enter safeguard (month): ";
+	cout << "\t\t\t\t\t\t\t\t\t\tEnter safeguard (month): ";
 	cin >> safeGuard;
-	cout << "Enter price (UAH): ";
+	cout << "\t\t\t\t\t\t\t\t\t\tEnter price (UAH): ";
 	cin >> price;
-	cout << "Enter count: ";
+	cout << "\t\t\t\t\t\t\t\t\t\tEnter count: ";
 	cin >> count;
 	
 }
 
 void Monitor::ShowMonitorInfo() {
 
-	cout << "Name:             " << monitorName << endl;
-	cout << "Author country:   " << devCountry << endl;
-	cout << "Matrix:           " << matrixType << endl;
-	cout << "Colour:           " << colour << endl;
-	cout << "Diagonal:         " << monitorsDisplay.diagonal << " in" << endl;
-	cout << "Refresh rate:     " << monitorsDisplay.refreshRate << endl;
-	cout << "Colours count:    " << coloursCount << endl;
-	cout << "Weight:           " << weight << " kg" << endl;
-	cout << "Safeguard:        " << safeGuard << " month" << endl;
-	cout << "Price:            " << price << " UAH" << endl;
-	cout << "Count:            " << count << endl;
+	cout << "\t\t\t\t\t\t\t\t\t\tName:             " << monitorName << endl;
+	cout << "\t\t\t\t\t\t\t\t\t\tAuthor country:   " << devCountry << endl;
+	cout << "\t\t\t\t\t\t\t\t\t\tMatrix:           " << matrixType << endl;
+	cout << "\t\t\t\t\t\t\t\t\t\tColour:           " << colour << endl;
+	cout << "\t\t\t\t\t\t\t\t\t\tDiagonal:         " << monitorsDisplay.diagonal << " in" << endl;
+	cout << "\t\t\t\t\t\t\t\t\t\tRefresh rate:     " << monitorsDisplay.refreshRate << endl;
+	cout << "\t\t\t\t\t\t\t\t\t\tColours count:    " << coloursCount << endl;
+	cout << "\t\t\t\t\t\t\t\t\t\tWeight:           " << weight << " kg" << endl;
+	cout << "\t\t\t\t\t\t\t\t\t\tSafeguard:        " << safeGuard << " month" << endl;
+	cout << "\t\t\t\t\t\t\t\t\t\tPrice:            " << price << " UAH" << endl;
+	cout << "\t\t\t\t\t\t\t\t\t\tCount:            " << count << endl;
 }

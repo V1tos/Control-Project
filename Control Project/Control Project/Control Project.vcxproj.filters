@@ -27,9 +27,6 @@
     <ClCompile Include="Laptop.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Display.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="MobilePhone.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

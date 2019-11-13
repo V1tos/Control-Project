@@ -4,66 +4,66 @@
 
 void PC::CreateComputer() {
 
-	cout << "Enter name (ex: Asus, HP) : ";
+	cout << "\t\t\t\t\tEnter name (ex: Asus, HP): ";
 	cin >> computerName;
-	cout << "Enter country : ";
+	cout << "\t\t\t\t\tEnter country : ";
 	cin >> devCountry;
-	cout << "Enter pocessor name (ex: Intel, AMD): ";
+	cout << "\t\t\t\t\tEnter pocessor name (ex: Intel, AMD): ";
 	cin >> PCProcessor.name;
-	cout << "Enter cores count: ";
+	cout << "\t\t\t\t\tEnter cores count: ";
 	cin >> PCProcessor.coreCount;
-	cout << "Enter clock frequency of processor (GHz): ";
+	cout << "\t\t\t\t\tEnter clock frequency of processor (GHz): ";
 	cin >> PCProcessor.freq1;
-	cout << "Enter max frequency of processor (GHz): ";
+	cout << "\t\t\t\t\tEnter max frequency of processor (GHz): ";
 	cin >> PCProcessor.freq2;
-	cout << "Enter processors generation: ";
+	cout << "\t\t\t\t\tEnter processors generation: ";
 	cin >> PCProcessor.generation;
-	cout << "Enter RAM's type (ex: DDR2, DDR3): ";
+	cout << "\t\t\t\t\tEnter RAM's type (ex: DDR2, DDR3): ";
 	cin >> PCRAM.type;
-	cout << "Enter frequency of RAM (MHz): ";
+	cout << "\t\t\t\t\tEnter frequency of RAM (MHz): ";
 	cin >> PCRAM.freq;
-	cout << "Enter RAM's memory (Gb): ";
+	cout << "\t\t\t\t\tEnter RAM's memory (Gb): ";
 	cin >> PCRAM.memory;
-	cout << "Enter videocard's name (ex: Nvidia, AMD): ";
+	cout << "\t\t\t\t\tEnter videocard's name (ex: Nvidia, AMD): ";
 	cin >> PCVideoCard.name;
-	cout << "Enter videocard's memory (Gb): ";
+	cout << "\t\t\t\t\tEnter videocard's memory (Gb): ";
 	cin >> PCVideoCard.memory;
-	cout << "Enter disk drive type (ex: HDD, SSD): ";
+	cout << "\t\t\t\t\tEnter disk drive type (ex: HDD, SSD): ";
 	cin >> PCDiskDrive.type;
-	cout << "Enter disk drive memory (Gb): ";
+	cout << "\t\t\t\t\tEnter disk drive memory (Gb): ";
 	cin >> PCDiskDrive.memory;
-	cout << "Enter computers weight (kg): ";
+	cout << "\t\t\t\t\tEnter computers weight (kg): ";
 	cin >> weight;
-	cout << "Enter computers size: " << endl;
-	cout << "Width (mm): ";
+	cout << "\t\t\t\t\tEnter computers size: " << endl;
+	cout << "\t\t\t\t\tWidth (mm): ";
 	cin >> Size.width;
-	cout << "Height (mm): ";
+	cout << "\t\t\t\t\tHeight (mm): ";
 	cin >> Size.height;
-	cout << "Length (mm): ";
+	cout << "\t\t\t\t\tLength (mm): ";
 	cin >> Size.length;
-	cout << "Enter power supply (W): ";
+	cout << "\t\t\t\t\tEnter power supply (W): ";
 	cin >> powerSupply;
-	cout << "Enter safeguard (month): ";
+	cout << "\t\t\t\t\tEnter safeguard (month): ";
 	cin >> safeGuard;
-	cout << "Enter price (UAH): ";
+	cout << "\t\t\t\t\tEnter price (UAH): ";
 	cin >> price;
-	cout << "Enter count: ";
+	cout << "\t\t\t\t\tEnter count: ";
 	cin >> count;
 }
 
 
 
 void PC::ShowComputerInfo() {
-	cout << "Name:             " << computerName << endl;
-	cout << "Author country:   " << devCountry << endl;
-	cout << "Processor:        " << PCProcessor.name <<" " << PCProcessor.coreCount << " cores (" << PCProcessor.freq1 << " - " << PCProcessor.freq2 << " GHz) " << PCProcessor.generation << "th generation" << endl;
-	cout << "RAM:              " << PCRAM.type << "-" << PCRAM.freq << " MHz (" << PCRAM.memory << " Gb)" << endl;
-	cout << "Videocard:        " << PCVideoCard.name << " (" << PCVideoCard.memory << " Gb)" << endl;
-	cout << "Disk drive:       " << PCDiskDrive.type << " (" << PCDiskDrive.memory << " Gb)" << endl;
-	cout << "Weight:           " << weight << " kg" << endl;
-	cout << "Size:             " << Size.width << "x" << Size.height << "x" << Size.length << " mm" << endl;
-	cout << "Power supply:     " << powerSupply << " kW" << endl;
-	cout << "Safeguard:        " << safeGuard << " month" << endl;
-	cout << "Price:            " << price << " UAH" << endl;
-	cout << "Count:            " << count << endl;
+	cout << "\t\t\t\t\t\t\t\t\t\tName:             " << computerName << endl;
+	cout << "\t\t\t\t\t\t\t\t\t\tAuthor country:   " << devCountry << endl;
+	cout << "\t\t\t\t\t\t\t\t\t\tProcessor:        " << PCProcessor.name <<" " << PCProcessor.coreCount << " cores (" << PCProcessor.freq1 << " - " << PCProcessor.freq2 << " GHz) " << PCProcessor.generation << "th generation" << endl;
+	cout << "\t\t\t\t\t\t\t\t\t\tRAM:              " << PCRAM.type << "-" << PCRAM.freq << " MHz (" << PCRAM.memory << " Gb)" << endl;
+	cout << "\t\t\t\t\t\t\t\t\t\tVideocard:        " << PCVideoCard.name << " (" << PCVideoCard.memory << " Gb)" << endl;
+	cout << "\t\t\t\t\t\t\t\t\t\tDisk drive:       " << PCDiskDrive.type << " (" << PCDiskDrive.memory << " Gb)" << endl;
+	cout << "\t\t\t\t\t\t\t\t\t\tWeight:           " << weight << " kg" << endl;
+	cout << "\t\t\t\t\t\t\t\t\t\tSize:             " << Size.width << "x" << Size.height << "x" << Size.length << " mm" << endl;
+	cout << "\t\t\t\t\t\t\t\t\t\tPower supply:     " << powerSupply << " kW" << endl;
+	cout << "\t\t\t\t\t\t\t\t\t\tSafeguard:        " << safeGuard << " month" << endl;
+	cout << "\t\t\t\t\t\t\t\t\t\tPrice:            " << price << " UAH" << endl;
+	cout << "\t\t\t\t\t\t\t\t\t\tCount:            " << count << endl;
 }

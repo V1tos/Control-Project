@@ -5,45 +5,45 @@
 
 void Mobile::CreateMobile() {
 
-	cout << "Enter name (ex: Samsung, Apple): ";
+	cout << "\t\t\t\t\t\t\t\t\t\tEnter name (ex: Samsung, Apple): ";
 	cin >> mobileName;
-	cout << "Enter country: ";
+	cout << "\t\t\t\t\t\t\t\t\t\tEnter country: ";
 	cin >> devCountry;
-	cout << "Enter display's diagonal (in): ";
+	cout << "\t\t\t\t\t\t\t\t\t\tEnter display's diagonal (in): ";
 	cin >> displayDiagonal;
-	cout << "Enter main camera's megapixels count: ";
+	cout << "\t\t\t\t\t\t\t\t\t\tEnter main camera's megapixels count: ";
 	cin >> mainCamera;
-	cout << "Enter front camera's megapixels count: ";
+	cout << "\t\t\t\t\t\t\t\t\t\tEnter front camera's megapixels count: ";
 	cin >> frontCamera;
-	cout << "Enter RAM's memory (Gb): ";
+	cout << "\t\t\t\t\t\t\t\t\t\tEnter RAM's memory (Gb): ";
 	cin >>  RAMmemory;
-	cout << "Enter mobile's memory (Gb): ";
+	cout << "\t\t\t\t\t\t\t\t\t\tEnter mobile's memory (Gb): ";
 	cin >> memory;
-	cout << "Enter batterys capacity (mA*h): ";
+	cout << "\t\t\t\t\t\t\t\t\t\tEnter batterys capacity (mA*h): ";
 	cin >> batteryCapacity;
-	cout << "Enter mobile's weight (g): ";
+	cout << "\t\t\t\t\t\t\t\t\t\tEnter mobile's weight (g): ";
 	cin >> weight;
-	cout << "Enter safeguard (month): ";
+	cout << "\t\t\t\t\t\t\t\t\t\tEnter safeguard (month): ";
 	cin >> safeGuard;
-	cout << "Enter price (UAH): ";
+	cout << "\t\t\t\t\t\t\t\t\t\tEnter price (UAH): ";
 	cin >> price;
-	cout << "Enter count: ";
+	cout << "\t\t\t\t\t\t\t\t\t\tEnter count: ";
 	cin >> count;
 }
 
 
 
 void Mobile::ShowMobileInfo() {
-	cout << "Name:             " << mobileName << endl;
-	cout << "Author country:   " << devCountry << endl;
-	cout << "Display:          " << displayDiagonal << " in"  << endl;
-	cout << "Main camera:      " << mainCamera << " Mp" << endl;
-	cout << "Front camera:     " << frontCamera << " Mp" << endl;
-	cout << "RAM:              " << RAMmemory << " Gb" << endl;
-	cout << "Memory:           " << memory <<" Gb" << endl;
-	cout << "Battery capacity: " << batteryCapacity << " mA*h" << endl;
-	cout << "Weight:           " << weight << " g" << endl;
-	cout << "Safeguard:        " << safeGuard << " month" << endl;
-	cout << "Price:            " << price << " UAH" << endl;
-	cout << "Count:            " << count << endl;
+	cout << "\t\t\t\t\t\t\t\t\t\tName:             " << mobileName << endl;
+	cout << "\t\t\t\t\t\t\t\t\t\tAuthor country:   " << devCountry << endl;
+	cout << "\t\t\t\t\t\t\t\t\t\tDisplay:          " << displayDiagonal << " in"  << endl;
+	cout << "\t\t\t\t\t\t\t\t\t\tMain camera:      " << mainCamera << " Mp" << endl;
+	cout << "\t\t\t\t\t\t\t\t\t\tFront camera:     " << frontCamera << " Mp" << endl;
+	cout << "\t\t\t\t\t\t\t\t\t\tRAM:              " << RAMmemory << " Gb" << endl;
+	cout << "\t\t\t\t\t\t\t\t\t\tMemory:           " << memory <<" Gb" << endl;
+	cout << "\t\t\t\t\t\t\t\t\t\tBattery capacity: " << batteryCapacity << " mA*h" << endl;
+	cout << "\t\t\t\t\t\t\t\t\t\tWeight:           " << weight << " g" << endl;
+	cout << "\t\t\t\t\t\t\t\t\t\tSafeguard:        " << safeGuard << " month" << endl;
+	cout << "\t\t\t\t\t\t\t\t\t\tPrice:            " << price << " UAH" << endl;
+	cout << "\t\t\t\t\t\t\t\t\t\tCount:            " << count << endl;
 }

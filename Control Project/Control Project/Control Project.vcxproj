@@ -115,7 +115,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Display.cpp" />
     <ClCompile Include="Laptop.cpp" />
     <ClCompile Include="MobilePhone.cpp" />
     <ClCompile Include="Monitor.cpp" />

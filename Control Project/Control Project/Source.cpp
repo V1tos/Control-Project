@@ -24,17 +24,17 @@ void Menu() {
 	MobileReadFile(CTDepartment.mobile, CTDepartment.mobilesCount);
 
 
-	Start();
+	/*Start();*/
 	while (!exit) {
 		system("cls");
-		cout << "1 - Add new element\n2 - Delete element\n3 - Sort by price\n4 - Search by name\n5 - Filter\n6 - Change price\n7 - Show information\n0 - Exit\nYour choice: ";
+		cout << "\t\t\t\t\t\t\t\t\t\t1 - Add new element\n\t\t\t\t\t\t\t\t\t\t2 - Delete element\n\t\t\t\t\t\t\t\t\t\t3 - Sort by price\n\t\t\t\t\t\t\t\t\t\t4 - Search by name\n\t\t\t\t\t\t\t\t\t\t5 - Filter\n\t\t\t\t\t\t\t\t\t\t6 - Change price\n\t\t\t\t\t\t\t\t\t\t7 - Show information\n\t\t\t\t\t\t\t\t\t\t0 - Exit\n\t\t\t\t\t\t\t\t\t\tYour choice: ";
 		cin >> mainChoice;
 
 		switch (mainChoice)
 		{
 		case 1:
 			system("cls");
-			cout << "1 - Add PC\n2 - Add laptop\n3 - Add monitor\n4 - Add mobilephone\nYour choice: ";
+			cout << "\t\t\t\t\t\t\t\t\t\t1 - Add PC\n\t\t\t\t\t\t\t\t\t\t2 - Add laptop\n\t\t\t\t\t\t\t\t\t\t3 - Add monitor\n\t\t\t\t\t\t\t\t\t\t4 - Add mobilephone\n\t\t\t\t\t\t\t\t\t\tYour choice: ";
 			cin >> addChoice;
 			switch (addChoice)
 			{
@@ -56,7 +56,7 @@ void Menu() {
 			break;
 		case 2:
 			system("cls");
-			cout << "1 - Delete PC\n2 - Delete laptop\n3 - Delete monitor\n4 - Delete mobilephone\nYour choice: ";
+			cout << "\t\t\t\t\t\t\t\t\t\t1 - Delete PC\n\t\t\t\t\t\t\t\t\t\t2 - Delete laptop\n\t\t\t\t\t\t\t\t\t\t3 - Delete monitor\n\t\t\t\t\t\t\t\t\t\t4 - Delete mobilephone\n\t\t\t\t\t\t\t\t\t\tYour choice: ";
 			cin >> delChoice;
 			switch (delChoice)
 			{
@@ -82,7 +82,7 @@ void Menu() {
 			break;
 		case 4:
 			system("cls");
-			cout << "1 - Search PC\n2 - Search laptop\n3 - Search monitor\n4 - Search mobilephone\nYour choice: ";
+			cout << "\t\t\t\t\t\t\t\t\t\t1 - Search PC\n\t\t\t\t\t\t\t\t\t\t2 - Search laptop\n\t\t\t\t\t\t\t\t\t\t3 - Search monitor\n\t\t\t\t\t\t\t\t\t\t4 - Search mobilephone\n\t\t\t\t\t\t\t\t\t\tYour choice: ";
 			cin >> searchChoice;
 			switch (searchChoice)
 			{
@@ -104,7 +104,7 @@ void Menu() {
 			break;
 		case 5:
 			system("cls");
-			cout << "1 - Filter by price\n2 - Filter by count\nYour choice: ";
+			cout << "\t\t\t\t\t\t\t\t\t\t1 - Filter by price\n\t\t\t\t\t\t\t\t\t\t2 - Filter by count\n\t\t\t\t\t\t\t\t\t\tYour choice: ";
 			cin >> filterChoice;
 			switch (filterChoice)
 			{
@@ -120,7 +120,7 @@ void Menu() {
 			break;
 		case 6:
 			system("cls");
-			cout << "1 - Change PC\n2 - Change laptop\n3 - Change monitor\n4 - Change mobilephone\nYour choice: ";
+			cout << "\t\t\t\t\t\t\t\t\t\t1 - Change PC\n\t\t\t\t\t\t\t\t\t\t2 - Change laptop\n\t\t\t\t\t\t\t\t\t\t3 - Change monitor\n\t\t\t\t\t\t\t\t\t\t4 - Change mobilephone\n\t\t\t\t\t\t\t\t\t\tYour choice: ";
 			cin >> changeChoice;
 			switch (changeChoice)
 			{
@@ -143,7 +143,7 @@ void Menu() {
 			break;
 		case 7:
 			system("cls");
-			cout << "1 - Show PC information\n2 - Show laptop information\n3 - Show monitor information\n4 - Show mobilephone information\n5 - Show all information\nYour choice: ";
+			cout << "\t\t\t\t\t\t\t\t\t\t1 - Show PC information\n\t\t\t\t\t\t\t\t\t\t2 - Show laptop information\n\t\t\t\t\t\t\t\t\t\t3 - Show monitor information\n\t\t\t\t\t\t\t\t\t\t4 - Show mobilephone information\n\t\t\t\t\t\t\t\t\t\t5 - Show all information\n\t\t\t\t\t\t\t\t\t\tYour choice: ";
 			cin >> infoChoice;
 			switch (infoChoice)
 			{
@@ -186,8 +186,9 @@ void Menu() {
 			exit = true;
 			break;
 		default:
-			cout << "Wrong choice!\nTry again" << endl;
+			cout << "\t\t\t\t\t\t\t\t\t\tWrong choice!\nTry again" << endl;
 			break;
+			system("pause");
 		}
 
 	}
