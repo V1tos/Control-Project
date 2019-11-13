@@ -150,26 +150,31 @@ void Menu() {
 			case 1:
 				system("cls");
 				ComputerList(CTDepartment.pc, CTDepartment.pcCount);
+				cout << "\t\t\t\t\t\t\t\t\t\t";
 				system("pause");
 				break;
 			case 2:
 				system("cls");
 				LaptopList(CTDepartment.laptop, CTDepartment.laptopsCount);
+				cout << "\t\t\t\t\t\t\t\t\t\t";
 				system("pause");
 				break;
 			case 3:
 				system("cls");
 				MonitorList(CTDepartment.monitor, CTDepartment.monitorsCount);
+				cout << "\t\t\t\t\t\t\t\t\t\t";
 				system("pause");
 				break;
 			case 4:
 				system("cls");
 				MobileList(CTDepartment.mobile, CTDepartment.mobilesCount);
+				cout << "\t\t\t\t\t\t\t\t\t\t";
 				system("pause");
 				break;
 			case 5:
 				system("cls");
 				ShowAllList(CTDepartment.pc, CTDepartment.pcCount, CTDepartment.laptop, CTDepartment.laptopsCount, CTDepartment.monitor, CTDepartment.monitorsCount, CTDepartment.mobile, CTDepartment.mobilesCount);
+				cout << "\t\t\t\t\t\t\t\t\t\t";
 				system("pause");
 				break;
 			default:
@@ -178,20 +183,50 @@ void Menu() {
 
 			break;
 		case 0:
-			PCWriteFile(CTDepartment.pc, CTDepartment.pcCount);
-			MonitorWriteFile(CTDepartment.monitor, CTDepartment.monitorsCount);
-			LaptopWriteFile(CTDepartment.laptop, CTDepartment.laptopsCount);
-			MobileWriteFile(CTDepartment.mobile, CTDepartment.mobilesCount);
 			system("cls");
-			exit = true;
+			char choice;
+			cout << "\t\t\t\t\t\t\t\t\t\tSave changes? (y/n): ";
+			cin >> choice;
+
+			switch (choice)
+			{
+			case 'y':
+				PCWriteFile(CTDepartment.pc, CTDepartment.pcCount);
+				MonitorWriteFile(CTDepartment.monitor, CTDepartment.monitorsCount);
+				LaptopWriteFile(CTDepartment.laptop, CTDepartment.laptopsCount);
+				MobileWriteFile(CTDepartment.mobile, CTDepartment.mobilesCount);
+				system("cls");
+				cout << "\t\t\t\t\t\t\t\t\t\tSaved" << endl;
+				exit = true;
+				break;
+			case 'n':
+				exit = true;
+				break;
+			default:
+				cout << "\t\t\t\t\t\t\t\t\t\tWrong choice!" << endl;
+				cout << "\t\t\t\t\t\t\t\t\t\t";
+				system("pause");
+				break;
+				
+			}
 			break;
 		default:
-			cout << "\t\t\t\t\t\t\t\t\t\tWrong choice!\nTry again" << endl;
-			break;
+			cout << "\t\t\t\t\t\t\t\t\t\tWrong choice! Try again" << endl;
+			cout << "\t\t\t\t\t\t\t\t\t\t";
 			system("pause");
+			break;
 		}
 
 	}
+
+	delete[] CTDepartment.pc;
+	CTDepartment.pc = nullptr;
+	delete[] CTDepartment.laptop;
+	CTDepartment.laptop = nullptr;
+	delete[] CTDepartment.monitor;
+	CTDepartment.monitor = nullptr;
+	delete[] CTDepartment.mobile;
+	CTDepartment.mobile = nullptr;
 
 
 
@@ -199,9 +234,9 @@ void Menu() {
 
 int main() {
 
-	/*setlocale(LC_ALL, "RU");*/
 	Menu();
 	
+	cout << "\t\t\t\t\t\t\t\t\t\t";
 	system("pause");
 	return 0;
 }

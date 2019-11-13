@@ -25,6 +25,7 @@ void Start() {
 		system("cls");
 		if (i == 99) {
 			cout << "\t\t\t\t\t\t\t\t\t\tDatabase downloaded"<< endl;
+			cout << "\t\t\t\t\t\t\t\t\t\t";
 			system("pause");
 			system("cls");
 		}
@@ -54,6 +55,7 @@ void AddComputer(PC *&computer, int &computersCount) {
 				cout << "\t\t\t\t\t\t\t\t\t\tPC N" << i + 1 << " :" << endl;
 				newComputer[i].CreateComputer();
 				cout << "\t\t\t\t\t\t\t\t\t\tAdded" << endl;
+				cout << "\t\t\t\t\t\t\t\t\t\t";
 				system("pause");
 				system("cls");
 			}
@@ -76,6 +78,7 @@ void AddComputer(PC *&computer, int &computersCount) {
 	}
 	else {
 		cout << "\t\t\t\t\t\t\t\t\t\tWrong choice!" << endl;
+		cout << "\t\t\t\t\t\t\t\t\t\t";
 		system("pause");
 	}
 
@@ -145,7 +148,7 @@ void DeleteComputer(PC *&computer, int &computersCount) {
 		}
 
 	}
-
+	cout << "\t\t\t\t\t\t\t\t\t\t";
 	system("pause");
 
 }
@@ -167,6 +170,7 @@ void ChangeComputerPrice(PC *&computer, int &computersCount) {
 		system("cls");
 		cout << "\t\t\t\t\t\t\t\t\t\tWrong choice!" << endl;
 	}
+	cout << "\t\t\t\t\t\t\t\t\t\t";
 	system("pause");
 
 }
@@ -190,7 +194,7 @@ void SearchComputer(PC *&computer, int &computersCount) {
 	if (tmp == 0) {
 		cout << "\t\t\t\t\t\t\t\t\t\tDidn't find anything!" << endl;
 	}
-
+	cout << "\t\t\t\t\t\t\t\t\t\t";
 	system("pause");
 
 }
@@ -344,6 +348,7 @@ void AddMonitor(Monitor *&monitor, int &monitorsCount) {
 				cout << "\t\t\t\t\t\t\t\t\t\tMonitor N" << i + 1 << " :" << endl;
 				newMonitor[i].CreateMonitor();
 				cout << "\t\t\t\t\t\t\t\t\t\tAdded" << endl;
+				cout << "\t\t\t\t\t\t\t\t\t\t";
 				system("pause");
 				system("cls");
 			}
@@ -361,6 +366,7 @@ void AddMonitor(Monitor *&monitor, int &monitorsCount) {
 	}
 	else {
 		cout << "\t\t\t\t\t\t\t\t\t\tWrong choice!" << endl;
+		cout << "\t\t\t\t\t\t\t\t\t\t";
 		system("pause");
 	}
 }
@@ -413,7 +419,7 @@ void DeleteMonitor(Monitor *&monitor, int &monitorsCount) {
 		}
 
 	}
-
+	cout << "\t\t\t\t\t\t\t\t\t\t";
 	system("pause");
 
 }
@@ -435,7 +441,7 @@ void ChangeMonitorPrice(Monitor *&monitor, int &monitorsCount) {
 	else {
 		cout << "\t\t\t\t\t\t\t\t\t\tWrong choice!" << endl;
 	}
-
+	cout << "\t\t\t\t\t\t\t\t\t\t";
 	system("pause");
 
 }
@@ -459,7 +465,7 @@ void SearchMonitor(Monitor *&monitor, int &monitorsCount) {
 	if (tmp == 0) {
 		cout << "\t\t\t\t\t\t\t\t\t\tDidn't find anything!" << endl;
 	}
-
+	cout << "\t\t\t\t\t\t\t\t\t\t";
 	system("pause");
 
 }
@@ -578,6 +584,7 @@ void AddLaptop(Laptop *&laptop, int &laptopsCount) {
 				cout << "\t\t\t\t\t\t\t\t\t\tLaptop N" << i + 1 << " :" << endl;
 				newLaptop[i].CreateLaptop();
 				cout << "\t\t\t\t\t\t\t\t\t\tAdded" << endl;
+				cout << "\t\t\t\t\t\t\t\t\t\t";
 				system("pause");
 				system("cls");
 			}
@@ -595,6 +602,7 @@ void AddLaptop(Laptop *&laptop, int &laptopsCount) {
 	}
 	else {
 		cout << "\t\t\t\t\t\t\t\t\t\tWrong choice!" << endl;
+		cout << "\t\t\t\t\t\t\t\t\t\t";
 		system("pause");
 	}
 }
@@ -648,7 +656,7 @@ void DeleteLaptop(Laptop *&laptop, int &laptopsCount) {
 		}
 
 	}
-
+	cout << "\t\t\t\t\t\t\t\t\t\t";
 	system("pause");
 
 }
@@ -671,6 +679,7 @@ void ChangeLaptopPrice(Laptop *&laptop, int &laptopsCount) {
 	else {
 		cout << "\t\t\t\t\t\t\t\t\t\tWrong choice!" << endl;
 	}
+	cout << "\t\t\t\t\t\t\t\t\t\t";
 	system("pause");
 
 }
@@ -693,7 +702,7 @@ void SearchLaptop(Laptop *&laptop, int &laptopsCount) {
 	if (tmp == 0) {
 		cout << "\t\t\t\t\t\t\t\t\t\tDidn't find anything!" << endl;
 	}
-
+	cout << "\t\t\t\t\t\t\t\t\t\t";
 	system("pause");
 }
 
@@ -867,6 +876,7 @@ void AddMobile(Mobile *&mobile, int &mobilesCount) {
 	}
 	else {
 		cout << "\t\t\t\t\t\t\t\t\t\tWrong choice!" << endl;
+		cout << "\t\t\t\t\t\t\t\t\t\t";
 		system("pause");
 	}
 	
@@ -927,7 +937,7 @@ void DeleteMobile(Mobile *&mobile, int &mobilesCount) {
 
 
 	}
-
+	cout << "\t\t\t\t\t\t\t\t\t\t";
 	system("pause");
 
 }
@@ -950,6 +960,7 @@ void ChangeMobilePrice(Mobile *&mobile, int &mobilesCount) {
 	else {
 		cout << "\t\t\t\t\t\t\t\t\t\tWrong choice!" << endl;
 	}
+	cout << "\t\t\t\t\t\t\t\t\t\t";
 	system("pause");
 
 }
@@ -974,7 +985,7 @@ void SearchMobile(Mobile *&mobile, int &mobilesCount) {
 	if (tmp == 0) {
 		cout << "\t\t\t\t\t\t\t\t\t\tDidn't find anything!" << endl;
 	}
-
+	cout << "\t\t\t\t\t\t\t\t\t\t";
 	system("pause");
 
 }
@@ -1154,7 +1165,7 @@ void SortByPrice(PC *&computer, int &computersCount, Laptop *&laptop, int &lapto
 
 		}
 	}
-
+	cout << "\t\t\t\t\t\t\t\t\t\t";
 	system("pause");
 }
 
@@ -1215,7 +1226,7 @@ void FilterByPrice(PC *&computer, int &computersCount, Laptop *&laptop, int &lap
 	if (tmp == 0) {
 		cout << "\t\t\t\t\t\t\t\t\t\tDidn't find anything!" << endl;
 	}
-
+	cout << "\t\t\t\t\t\t\t\t\t\t";
 	system("pause");
 }
 
@@ -1276,7 +1287,7 @@ void FilterByCount(PC *&computer, int &computersCount, Laptop *&laptop, int &lap
 	if (tmp == 0) {
 		cout << "\t\t\t\t\t\t\t\t\t\tDidn't find anything!" << endl;
 	}
-
+	cout << "\t\t\t\t\t\t\t\t\t\t";
 	system("pause");
 }
 

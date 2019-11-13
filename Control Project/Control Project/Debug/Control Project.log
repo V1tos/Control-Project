@@ -1,15 +1,15 @@
 ﻿  Source.cpp
 c:\users\palamarchuk\desktop\control\control project\control project\functions.h(21): warning C4101: 'arr': unreferenced local variable
-c:\users\palamarchuk\desktop\control\control project\control project\functions.h(159): warning C4018: '<=': signed/unsigned mismatch
-c:\users\palamarchuk\desktop\control\control project\control project\functions.h(428): warning C4018: '<=': signed/unsigned mismatch
-c:\users\palamarchuk\desktop\control\control project\control project\functions.h(664): warning C4018: '<=': signed/unsigned mismatch
-c:\users\palamarchuk\desktop\control\control project\control project\functions.h(943): warning C4018: '<=': signed/unsigned mismatch
-c:\users\palamarchuk\desktop\control\control project\control project\functions.h(1172): warning C4018: '<=': signed/unsigned mismatch
+c:\users\palamarchuk\desktop\control\control project\control project\functions.h(162): warning C4018: '<=': signed/unsigned mismatch
+c:\users\palamarchuk\desktop\control\control project\control project\functions.h(434): warning C4018: '<=': signed/unsigned mismatch
+c:\users\palamarchuk\desktop\control\control project\control project\functions.h(672): warning C4018: '<=': signed/unsigned mismatch
+c:\users\palamarchuk\desktop\control\control project\control project\functions.h(953): warning C4018: '<=': signed/unsigned mismatch
 c:\users\palamarchuk\desktop\control\control project\control project\functions.h(1183): warning C4018: '<=': signed/unsigned mismatch
 c:\users\palamarchuk\desktop\control\control project\control project\functions.h(1194): warning C4018: '<=': signed/unsigned mismatch
-c:\users\palamarchuk\desktop\control\control project\control project\functions.h(1206): warning C4018: '<=': signed/unsigned mismatch
-c:\users\palamarchuk\desktop\control\control project\control project\functions.h(1233): warning C4018: '<=': signed/unsigned mismatch
+c:\users\palamarchuk\desktop\control\control project\control project\functions.h(1205): warning C4018: '<=': signed/unsigned mismatch
+c:\users\palamarchuk\desktop\control\control project\control project\functions.h(1217): warning C4018: '<=': signed/unsigned mismatch
 c:\users\palamarchuk\desktop\control\control project\control project\functions.h(1244): warning C4018: '<=': signed/unsigned mismatch
 c:\users\palamarchuk\desktop\control\control project\control project\functions.h(1255): warning C4018: '<=': signed/unsigned mismatch
-c:\users\palamarchuk\desktop\control\control project\control project\functions.h(1267): warning C4018: '<=': signed/unsigned mismatch
+c:\users\palamarchuk\desktop\control\control project\control project\functions.h(1266): warning C4018: '<=': signed/unsigned mismatch
+c:\users\palamarchuk\desktop\control\control project\control project\functions.h(1278): warning C4018: '<=': signed/unsigned mismatch
   Control Project.vcxproj -> C:\Users\palamarchuk\Desktop\Control\Control Project\Debug\Control Project.exe
