@@ -27,6 +27,11 @@ void Menu() {
 	/*Start();*/
 	while (!exit) {
 		system("cls");
+		cout << "\t\t\t\t\t\t\t\t###################################################" << endl;
+		cout << "\t\t\t\t\t\t\t\t#                                                 #" << endl;
+		cout << "\t\t\t\t\t\t\t\t#         Computer's technique department         #" << endl;
+		cout << "\t\t\t\t\t\t\t\t#                                                 #" << endl;
+		cout << "\t\t\t\t\t\t\t\t###################################################" << endl;
 		cout << "\t\t\t\t\t\t\t\t\t\t1 - Add new element\n\t\t\t\t\t\t\t\t\t\t2 - Delete element\n\t\t\t\t\t\t\t\t\t\t3 - Sort by price\n\t\t\t\t\t\t\t\t\t\t4 - Search by name\n\t\t\t\t\t\t\t\t\t\t5 - Filter\n\t\t\t\t\t\t\t\t\t\t6 - Change price\n\t\t\t\t\t\t\t\t\t\t7 - Show information\n\t\t\t\t\t\t\t\t\t\t0 - Exit\n\t\t\t\t\t\t\t\t\t\tYour choice: ";
 		cin >> mainChoice;
 
